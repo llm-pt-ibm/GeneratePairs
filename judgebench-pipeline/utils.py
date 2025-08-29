@@ -45,6 +45,54 @@ def write_to_jsonl(file_path: str, data: List[Any]) -> None:
 # also, add a corresponding if statement to load_examples_from_dataset_name, which maps the dataset name to the load function
 
 
+def load_poscomp(file_path: str = "/home/ronaldd.matias/GeneratePairs/judgebench-pipeline/poscomp.json") -> List[Dict[str, Any]]:
+    """
+    Carrega exemplos do benchmark POSCOMP a partir de um arquivo JSON.
+    Assume que o arquivo contém uma lista de objetos JSON ou um único objeto.
+    """
+    examples = []
+    
+    with open(file_path, 'r', encoding='utf-8') as f:
+        data = json.load(f)
+    
+    if not isinstance(data, list):
+        data = [data]
+
+    for row in data:
+        prompt_text = row["enunciado"]
+        
+        
+        formatted_alternatives = []
+        for i, alt in enumerate(row["alternativas"]):
+            letter = chr(ord('A') + i)
+            text = re.sub(r'^[a-z]\)\s*', '', alt)
+            formatted_alternatives.append(f"({letter}) {text}")
+        
+        prompt_text += "\n" + "\n".join(formatted_alternatives)
+        
+        prompt_text += "\n\nIf you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.\nLet's think step by step."
+
+        gabarito_letter = row["gabarito"].upper() # ex: 'E'
+        gabarito_index = ord(gabarito_letter) - ord('A') # ex: 4
+        
+        correct_alternative_full_text = formatted_alternatives[gabarito_index]
+        
+        example = {
+            "original_id": row["id"],
+            "source": f"poscomp-{row['edicao']}-{row['area_conhecimento']}",
+            "question": prompt_text,
+            "ground_truth": correct_alternative_full_text,
+        }
+
+        unique_id = str(uuid.uuid5(uuid.NAMESPACE_DNS, json.dumps(example)))
+        example_with_unique_id = {"question_id": unique_id}
+        example_with_unique_id.update(example)
+
+        examples.append(example_with_unique_id)
+
+    return examples
+
+
 def load_mmlu_pro() -> List[Dict[str, Any]]:
     dataset = datasets.load_dataset("TIGER-Lab/MMLU-Pro", split="test")
 
@@ -87,6 +135,8 @@ def load_mmlu_pro() -> List[Dict[str, Any]]:
 def load_examples_from_dataset_name(dataset_name: str) -> Any:
     if dataset_name == "mmlu_pro":
         return load_mmlu_pro()
+    elif dataset_name == "poscomp":
+        return load_poscomp("/home/ronaldd.matias/GeneratePairs/judgebench-pipeline/poscomp.json")
     else:
         raise NotImplementedError(
             f"Loader for {dataset_name} is not yet implemented.")
@@ -177,7 +227,7 @@ class Regex5TimesMultipleChoiceSolutionChecker(RegexMultipleChoiceSolutionChecke
 
 
 def get_solution_check_from_dataset_name(dataset_name: str) -> Any:
-    if dataset_name in ["mmlu_pro"]:
+    if dataset_name in ["mmlu_pro", "poscomp"]:
         return [MultipleChoiceSolutionChecker(), Regex5TimesMultipleChoiceSolutionChecker()]
     else:
         raise NotImplementedError(
