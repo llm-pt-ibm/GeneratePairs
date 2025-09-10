@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "2\n", "type": "io", "output": "Move o disco 1 da haste A para a haste B\nMove o disco 2 da haste A para a haste C\nMove o disco 1 da haste B para a haste C\n"}]}

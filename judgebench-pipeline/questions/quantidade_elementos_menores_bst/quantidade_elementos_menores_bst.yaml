@@ -1,0 +1,113 @@
+name: quantidade_elementos_menores_bst
+label: Elementos menores BST
+tags: [arvores binarias, bst]
+text: |
+
+    # Quantos elementos menores?
+
+    Escreva um programa que leia os números a serem adicionados em uma BST e um número N e
+    determine a quantidade de elementos menores que N na árvore.
+
+    ## Entrada
+
+    Seu programa deve ler duas linhas da entrada padrão. 
+    A primeira contendo (em ordem) os elementos que devem ser adicionados
+    na árvore. A segunda linha contêm um inteiro N.
+
+
+    Você pode assumir que não haverá elementos repetidos na árvore.
+    Você **não** deve assumir que N está presente na árvore.
+
+    ## Saída
+
+    Seu programa deve imprimir em pré-ordem a árvore lida e deve imprimir quantos
+    elementos menores que N estã presentes na árvore.
+
+    ## Exemplos de execução
+
+        $ javac Solution.java; java Solution
+        10 8 1 9 20 18 25
+        10
+        [10, 8, 1, 9, 20, 18, 25]
+        3
+
+tests:
+
+-   input: |
+        10 8 1 9 20 18 25
+        10
+    output: |
+        [10, 8, 1, 9, 20, 18, 25]
+        3
+    category: public
+
+-   input: |
+        1 2 3 4 5 6 7 8
+        1
+    output: |
+        [1, 2, 3, 4, 5, 6, 7, 8]
+        0
+
+-   input: |
+        1 2 3 4 5 6 7 8
+        3
+    output: |
+        [1, 2, 3, 4, 5, 6, 7, 8]
+        2
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        100
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        3
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        90
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        2
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        400
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        11
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        150
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        4
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        80
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        0
+
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        1
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        0
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        210
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        7
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+        130
+    output: |
+        [100, 80, 90, 85, 200, 150, 170, 300, 400, 350, 320, 330]
+        4

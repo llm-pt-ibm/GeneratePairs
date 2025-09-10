@@ -1,0 +1,175 @@
+name: hashset
+label: HashSeT
+tags: [hash, hashmap, tabela hash, probing linear, hashset]
+text: |
+
+    # HashSet
+
+    HashSets implementam a noção matemática de conjunto em Java, isto é, não permitem elementos repetidos. 
+    HashSets são estruturas bem semelhantes à Tabelas Hash no que diz respeito à implementação, pois também podem ser baseadas em arrays e 
+    utilizam funções de hash para determinar onde armazenar o valor passado. 
+    Contudo, uma grande diferença é que eles **não** armazenam os pares 
+    chave-valor, mas apenas os valores. 
+
+    Devido à natureza das funções de hash que utilizamos na construção de HashSets, colisões são
+    inevitáveis. Isto é, para algum par de valores, existe a possibilidade
+    de seus hashes serem iguais e, por consequência, esses objetos serão mapeados para a mesma
+    posição.
+
+    Uma das maneiras de se resolver colisões é, caso o hash seja mapeado para 
+    uma posição já ocupada, o algoritmo de inserção procura por uma outra posição livre para inserir o
+    valor. A essa estratégia, dá-se o nome de resolução de colisões por endereçamento aberto. 
+    Em particular, quando a tentativa é sempre verificar a próxima posição livre do array, diz-se que
+    a estratégia utiliza um probing linear.
+
+    Implemente um programa que leia da entrada padrão operações em um HashSet 
+    imprima o seu estado sempre que as operações put e remove forem efetuadas.
+    
+    O HashSet deve **armazenar valores inteiros** e deve resolver 
+    **colisões por endereçamento aberto e probing linear**. 
+
+    Seu HashSet deve ter as seguintes funções:
+
+        - put <valor>
+        - remove <valor> 
+        - contains <valor>
+        
+
+    **Importante!** Para facilitar os testes, seu HashSet sempre terá a seguinte função *base* de hash:
+
+        hash(key) = key % M, onde M é o tamanho do HashSet.
+
+    **Importante!** Caso o conjunto já esteja completamente cheio durante uma inserção, 
+    basta não adicionar o novo valor. Contudo, mesmo que a operação não seja realizada,
+    imprima o conteúdo do conjunto.
+
+     Rehash será assunto para outra questão :)
+
+    ## Entrada
+
+    Seu programa deve ler da entrada o tamanho da tabela e uma série de operações 
+    (put, remove e contains). 
+
+        - put: adiciona um valor no conjunto 
+        - remove: remove o valor do conjunto
+        - contains: verifica se o conjunto contém um valor passado como parâmetro.
+
+    A leitura de operações deve ser encerrada com a palavra `"end"`.
+
+    ## Saída
+
+    Seu programa deve imprimir o conteúdo do HashSet sempre que as operações put e remove forem efetuadas.
+    Quando a operação contains for lida, seu programa deve imprimir true ou false.
+    
+    ## Restrições
+
+        - Seu HashSet deve ser baseado em arrays. 
+        - A função de hash deve ser sempre a mesma (exceto pelo probing): key % M, 
+        onde M é o tamanho do conjunto.
+        - Crie a classe HashSet para organizar o seu código. 
+    
+    ## Exemplo de execução$142.60
+
+    
+        $ javac Solution.java; java Solution
+        5
+        put 0
+        [0, null, null, null, null]
+        put 14
+        [0, null, null, null, 14]
+        put 20
+        [0, 20, null, null, 14]
+        put 0
+        [0, 20, null, null, 14]
+        contains 20
+        true
+        remove 20
+        [0, null, null, null, 14]
+        contains 20
+        false
+        end
+                
+tests:
+
+-   category: public
+    input: |
+        5
+        put 0
+        put 14
+        put 20
+        put 0
+        contains 20
+        remove 20
+        contains 20
+        end
+    output: |
+        [0, null, null, null, null]
+        [0, null, null, null, 14]
+        [0, 20, null, null, 14]
+        [0, 20, null, null, 14]
+        true
+        [0, null, null, null, 14]
+        false
+
+-   category: public
+    input: |
+        3
+        remove 9
+        put 6
+        put 7
+        put 8
+        put 9
+        remove 6
+        put 9
+        end
+    output: |
+        [null, null, null]
+        [6, null, null]
+        [6, 7, null]
+        [6, 7, 8]
+        [6, 7, 8]
+        [null, 7, 8]
+        [9, 7, 8]
+
+-   input: |
+        3
+        put 0
+        put 6
+        put 0
+        put 6
+        remove 0
+        remove 6
+        end
+    output: |
+        [0, null, null]
+        [0, 6, null]
+        [0, 6, null]
+        [0, 6, null]
+        [null, 6, null]
+        [null, null, null]
+
+-   input: |
+        3
+        put 0
+        put 1
+        put 2
+        put 0
+        put 66
+        remove 0
+        remove 1
+        remove 2
+        remove 3
+        put 66
+        end
+
+    output: |
+        [0, null, null]
+        [0, 1, null]
+        [0, 1, 2]
+        [0, 1, 2]
+        [0, 1, 2]
+        [null, 1, 2]
+        [null, null, 2]
+        [null, null, null]
+        [null, null, null]
+        [66, null, null]

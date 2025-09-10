@@ -1,0 +1,67 @@
+name: altura_bst
+label: Altura BST
+tags: [arvores binarias, bst]
+text: |
+
+    # Altura BST
+
+    Altura de uma árvore é o tamanho do maior caminho entre a raiz e todas as folhas.
+
+    Escreva um programa que leia os números a serem adicionados em uma BST e
+    imprima a altura da árvore resultante dessas inserções.
+
+
+    ## Entrada
+
+    Seu programa deve ler apenas uma linha contendo (em ordem) os elementos que devem ser adicionados à árvore.
+
+    Você pode assumir que não haverá elementos repetidos na árvore.
+    Você pode assumir que pelo menos um valor é lido.
+
+    ## Saída
+
+    Seu programa deve imprimir o valor da altura da árvore.
+
+    ## Exemplos de execução
+    
+        $ javac Solution.java; java Solution
+        10 8 1 9 20 18 25
+        2
+
+tests:
+
+-   input: |
+        10 8 1 9 20 18 25
+    output: |
+        2
+    category: public
+
+-   input: |
+        1 2 3 4 5 6 7 8
+    output: |
+        7
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+    output: |
+        6
+
+-   input: |
+        100 80 200 90 150 85 170 160
+    output: |
+        4
+
+-   input: |
+        100 80 200 90 150 85 170 160 83 84
+    output: |
+        5
+
+-   input: |
+        10
+    output: |
+        0
+
+-   input: |
+        10 -1
+    output: |
+        1

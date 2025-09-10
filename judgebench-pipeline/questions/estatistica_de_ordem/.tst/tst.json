@@ -1,0 +1,38 @@
+{
+  "files": {
+    "estatistica_de_ordem.yaml": {
+      "category": "secret"
+    }
+  },
+  "kind": "activity",
+  "name": "estatistica_de_ordem",
+  "version_token": "03f08060fac715e2b7ea5b766c445b75",
+  "last_update_datetime": "2016-11-28T13:38:52.566510",
+  "checkout": {
+    "files": {
+      "estatistica_de_ordem.yaml": {
+        "category": "5ebe2294ecd0e0f08eab7690d2a6ee69",
+        "data": "0dac5e0589cd2f8ba7e0cd98c70c813b"
+      }
+    },
+    "tests": [
+      "4de05c69cbbea8e1661b8d5a2c168823",
+      "0db4abdaa4de451fb448a818cb64a207",
+      "7e0b8311b3ac732cad92ec8434a96436",
+      "22b1356b5e3bf08437aaf8724b18c83e"
+    ],
+    "name": "ec254aa5b919dae030d156b7ee442adb",
+    "text": "6eb2c12f8eb921900e4e6bda4d387b2b",
+    "label": "db4b32bbb2a136a8e8960d91c20dad28",
+    "type": "0861a099e9593791de261ebb86e75eac"
+  },
+  "create_datetime": "2016-11-28T13:38:04.187740",
+  "collaborators": [],
+  "label": "Unnamed",
+  "iid": 5286016655032320,
+  "state": "enabled",
+  "version": "1.1.0",
+  "owner": "joao.arthur@computacao.ufcg.edu.br",
+  "type": "problem",
+  "last_update_user": null
+}

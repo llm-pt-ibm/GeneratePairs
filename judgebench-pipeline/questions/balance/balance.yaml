@@ -1,0 +1,59 @@
+name: balance
+label: Balance
+tags: [arvores binarias, bst]
+text: |
+
+    # Balance em Árvores Binárias de Pesquisa
+
+    *Balance* de um nó em uma BST é a diferença entre a altura da sub-árvore à esquerda
+    e a altura da sub-árvore à direita. Escreva um programa que leia números inteiros 
+    a serem adicionados em uma BST e imprima o encaminhamento em pré-ordem dos
+    nós juntamente com os seus respectivos balances.
+
+    ## Entrada
+
+    Seu programa deve ler uma linha contendo os números a serem adicionados (em sequência) na árvore.
+
+    Você pode assumir que não haverá elementos repetidos na árvore.
+
+    ## Saída
+
+    Seu programa deve imprimir o encaminhamento em pré-ordem e os respectivos balances dos nós.
+
+    ## Exemplos de execução
+        $ javac Solution.java; java Solution
+        100 200 210 90 95 70 1
+        100,1 90,1 70,1 1,0 95,0 200,-1 210,0
+
+tests:
+
+-   input: |
+        100 200 210 90 95 70 1
+    output: |
+        100,1 90,1 70,1 1,0 95,0 200,-1 210,0
+    category: public
+
+-   input: |
+        1 2 3 4 5 6 7 8
+    output: |
+        1,-7 2,-6 3,-5 4,-4 5,-3 6,-2 7,-1 8,0
+
+-   input: |
+        100 80 200 90 150 300 85 170 400 350 320 330
+    output: |
+        100,-3 80,-2 90,1 85,0 200,-3 150,-1 170,0 300,-4 400,3 350,2 320,-1 330,0
+
+-   input: |
+        10 9 8
+    output: |
+        10,2 9,1 8,0
+
+-   input: |
+        10
+    output: |
+        10,0
+
+-   input: |
+        10 -1
+    output: |
+        10,1 -1,0

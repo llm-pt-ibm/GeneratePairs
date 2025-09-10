@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "2\n2 4 6\n", "name": "exemplo", "output": "4 8 12\n"}, {"category": "public", "input": "7\n2 1 3\n", "name": "unico", "output": "14 7 21\n"}]}

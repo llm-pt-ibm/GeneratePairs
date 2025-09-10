@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "10 8 1\n", "output": "rot_dir(10)\n[8, 1, 10]\n"}, {"category": "public", "input": "10 8 9\n", "output": "rot_esq(8)\n[10, 9, 8]\nrot_dir(10)\n[9, 8, 10]\n"}, {"category": "public", "input": "10 8 12\n", "output": "balanceada\n"}]}

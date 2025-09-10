@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "3\n2\n1\n3\n1\n2\n3\n", "output": "Arvores com estruturas diferentes.\n"}, {"category": "public", "input": "1\n3\n20\n", "output": "Arvores similares.\n"}]}

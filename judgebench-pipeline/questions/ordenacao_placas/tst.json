@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "JCB-8599,NEH-6731,IKZ-8333,MVW-9463,MWW-3683,MWD-3386,MUB-3143,LWJ-5599,HQZ-7220\n", "output": "MUB-3143, MWD-3386, MWW-3683, LWJ-5599, NEH-6731, HQZ-7220, IKZ-8333, JCB-8599, MVW-9463\n"}, {"category": "public", "input": "NEH-6731,IKZ-8333,HQZ-7220,JCB-8333\n", "output": "NEH-6731, HQZ-7220, IKZ-8333, JCB-8333\n"}]}

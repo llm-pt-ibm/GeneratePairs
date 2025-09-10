@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "4 2 3\n", "output": "T(n) = theta(n**3)\n"}, {"category": "public", "input": "9 3 2\n", "output": "T(n) = theta(n**2 * log n)\n"}, {"input": "8 8 3\n", "output": "T(n) = theta(n**3)\n"}, {"input": "3 3 1\n", "output": "T(n) = theta(n**1 * log n)\n"}, {"input": "27 3 3\n", "output": "T(n) = theta(n**3 * log n)\n"}]}
