@@ -1,0 +1,1118 @@
+[
+  {
+    "id": "2002-09",
+    "edicao": 2002,
+    "numero": 9,
+    "enunciado": "Assinale a proposição verdadeira",
+    "alternativas": [
+      "a) Se $x$ é um número real tal que $x^2 \\leq 4$ então $x \\leq 2$ e $x \\leq -2$",
+      "b) Se $x$ e $y$ são números reais tais que $x < y$ então $x^2 < y^2$",
+      "c) Se $x + y$ é um número racional então $x$ e $y$ são números racionais",
+      "d) Se $x < -4$ ou $x > 1$ então $\\frac{2x + 3}{x - 1} > 1$",
+      "e) nenhuma das anteriores"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Relações de Consequência",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - relacoes de consequencia"
+  },
+  {
+    "id": "2002-10",
+    "edicao": 2002,
+    "numero": 10,
+    "enunciado": "Assinale o argumento válido, onde $S_1$, $S_2$ indicam premissas e $S$ a conclusão:",
+    "alternativas": [
+      "a) \n- $S_1$: Se o cavalo estiver cansado então ele perderá a corrida\n* $S_2$: O cavalo estava descansado\n* $S$: O cavalo ganhou a corrida",
+      "b) \n- $S_1$: Se o cavalo estiver cansado então ele perderá a corrida\n- $S_2$: O cavalo ganhou a corrida\n- $S$: O cavalo estava descansado",
+      "c) \n- $S_1$: Se o cavalo estiver cansado então ele perderá a corrida\n- $S_2$: O cavalo perdeu a corrida\n- $S$: O cavalo estava cansado",
+      "d) \n- $S_1$: Se o cavalo estiver cansado então ele perderá a corrida\n- $S_2$: O cavalo estava descansado\n- $S$: O cavalo perdeu a corrida",
+      "e) nenhuma das anteriores"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2002-15",
+    "edicao": 2002,
+    "numero": 15,
+    "enunciado": "Se $\\lim_{n\\to\\infty}(\\frac{1}{n^2} + \\frac{2}{n^2} + \\dots + \\frac{n-1}{n^2}) = L$ então",
+    "alternativas": [
+      "a) $L = 1$",
+      "b) $L = 0$",
+      "c) $L = 1/2$",
+      "d) $L = \\infty$",
+      "e) $L = 2$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2003-02",
+    "edicao": 2003,
+    "numero": 2,
+    "enunciado": "Considere as seguintes afirmativas sobre números reais: \\\n(I) Se $2x - 1 < 1$ e $x + 1 > 0$, então $x < 0$. \\\n(II) Se $x^2 - 1 < 0$ ou $2x  \\geq  1$, então $x  \\geq  0$. \\\n(III) Se $x^2 - 1 < 0$ e $2x  \\geq  1$, então $x  \\geq  0$. \\\nAssinale a alternativa correta.",
+    "alternativas": [
+      "a) Somente (I) é verdadeira.",
+      "b) Somente (III) é verdadeira.",
+      "c) (I) e (II) são verdadeiras.",
+      "d) (II) e (III) são verdadeiras.",
+      "e) (II) e (III) são falsas."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Relações de Consequência",
+    "gabarito": "ANULADA",
+    "atributo_rag": "matematica - logica matematica - relacoes de consequencia"
+  },
+  {
+    "id": "2003-07",
+    "edicao": 2003,
+    "numero": 7,
+    "enunciado": "Seja $f : \\mathbb{R} \\to \\mathbb{R}$ uma função derivável tal que $f (-1) = 2$, $f (2) = 1$, $f' (-1) = 0$ e $f' (2) = 0$. Além disso, $f' (x) > 0$ para todo $x \\in (-\\infty, -1) \\cup (1, 2)$ e $f' (x) < 0$ para todo $x \\in (-1, 1) \\cup (2, +\\infty)$. Podemos afirmar que",
+    "alternativas": [
+      "a) $\\lim_{x\\to+\\infty} f (x) = +\\infty$",
+      "b) $\\lim_{x\\to-\\infty} f (x) = -\\infty$",
+      "c) $x = 2$ é ponto de máximo global de $f$.",
+      "d) $x = -1$ é ponto de máximo global de $f$.",
+      "e) $f$ não tem ponto de máximo global."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógicas não clássicas",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logicas nao classicas"
+  },
+  {
+    "id": "2003-16",
+    "edicao": 2003,
+    "numero": 16,
+    "enunciado": "Assinale a forma correta da negação da seguinte frase: \\\n\"Algumas pessoas gostam de matemática.\"",
+    "alternativas": [
+      "a) Algumas pessoas não gostam de matemática.",
+      "b) Todas as pessoas não gostam de matemática.",
+      "c) Existe uma pessoa que gosta de matemática.",
+      "d) Existe uma pessoa que não gosta de matemática.",
+      "e) Todas as pessoas gostam de matemática."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2003-17",
+    "edicao": 2003,
+    "numero": 17,
+    "enunciado": "Assinale o argumento válido, onde $S_1$ e $S_2$ indicam premissas e $C$ a conclusão.",
+    "alternativas": [
+      "a) \n- $S_1$: Se a comida é boa, então o serviço é bom. \n- $S_2$: A comida não é boa. \n- $C$: O serviço não é bom.",
+      "b) \n- $S_1$: Se a comida é boa, então o serviço é bom. \n- $S_2$: O serviço não é bom. \n- $C$: A comida é boa.",
+      "c) \n- $S_1$: Se a comida é boa, então o serviço é bom. \n- $S_2$: O serviço não é bom. \n- $C$: A comida não é boa.",
+      "d) \n- $S_1$: Se a comida é boa, então o serviço é bom. \n- $S_2$: A comida é boa. \n- $C$: O serviço não é bom.",
+      "e) \n- $S_1$: Se a comida é boa, então o serviço é bom. \n- $S_2$: A comida não é boa. \n- $C$: O serviço é bom."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2004-20",
+    "edicao": 2004,
+    "numero": 20,
+    "enunciado": "Considere a fórmula e o domínio de interpretação a seguir:\n$$\n\\begin{align*}\n& [ \\forall x [ F x \\Rightarrow [ E x \\land T xa ] ] ] \\land \\\\\n& [ \\exists x [ [ E x \\land T xa ] \\land F x ] ] \\land \\\\\n& [ \\exists x [ [ E x \\land T xa ] \\land \\neg F x ] ]\n\\end{align*}\n$$\n- Domínio: Universo \n- $a$: Alberto \n- $Ex$: $x$ é estudante \n- $Fx$: $x$ formou-se \n- $Txy$: $x$ trabalhou mais que $y$ \n\nQual sentença é logicamente consistente com a fórmula usando o domínio de interpretação apresentado?",
+    "alternativas": [
+      "a) Todos os estudantes que trabalharam mais que Alberto formaram-se.",
+      "b) Somente estudantes que trabalharam mais que Alberto formaram-se.",
+      "c) Alberto trabalhou mais que qualquer estudante que não se formou.",
+      "d) Somente estudantes que se formaram trabalharam mais que Alberto.",
+      "e) Todos os estudantes que não se formaram trabalharam menos que Alberto."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2005-12",
+    "edicao": 2005,
+    "numero": 12,
+    "enunciado": "Determine qual das seguintes proposições não pode ser provada a partir da premissa:\n$$\n((a \\land b) \\lor c) \\land (c \\rightarrow d)\n$$",
+    "alternativas": [
+      "a) $(a \\lor d) \\land (b \\lor d)$",
+      "b) $(\\lnot a \\lor \\lnot b) \\rightarrow (c \\land d) $",
+      "c) $(a \\land b) \\rightarrow \\lnot d$",
+      "d) $\\lnot a \\rightarrow d$",
+      "e) $\\lnot d \\rightarrow b$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Relações de Consequência",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - relacoes de consequencia"
+  },
+  {
+    "id": "2005-13",
+    "edicao": 2005,
+    "numero": 13,
+    "enunciado": "Dadas as quatro premissas:\n- Se o universo é finito, então a vida é curta.\n- Se a vida vale a pena, então a vida é complexa.\n- Se a vida é curta ou complexa, então a vida tem sentido.\n- A vida não tem sentido.\n\ne as assertivas lógicas:\n\n(I) se o universo é finito e a vida vale a pena, então a vida tem sentido; \\\n(II) a vida não é curta; \\\n(III) a vida tem sentido ou o universo é finito.\n\nquais assertivas pode-se dizer que se seguem logicamente das premissas dadas?",
+    "alternativas": [
+      "a) Somente (I) e (III)",
+      "b) Somente (II) e (III)",
+      "c) Somente (I) e (II)",
+      "d) (I), (II) e (III)",
+      "e) Somente a assertiva (I)."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2005-14",
+    "edicao": 2005,
+    "numero": 14,
+    "enunciado": "Considere a seguinte proposição:\n$$\nP : \\forall x[Bx \\rightarrow [Lx \\land Cx]]\n$$\nAssinale a alternativa que contém uma proposição equivalente a $\\lnot P$.",
+    "alternativas": [
+      "a) $\\forall x \\lnot [B x \\rightarrow [Lx \\land Cx]].$",
+      "b) $\\exists x[Bx \\land [\\lnot Lx \\lor \\lnot Cx]].$",
+      "c) $\\forall x[Bx \\rightarrow \\lnot [Lx \\land Cx]].$",
+      "d) $\\exists x[\\lnot Bx \\land [\\lnot Lx \\lor \\lnot Cx]].$",
+      "e) $\\exists x[\\lnot Bx \\lor [Lx \\land Cx]].$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2006-09",
+    "edicao": 2006,
+    "numero": 9,
+    "enunciado": "Assinale a proposição logicamente equivalente a $\\neg (p \\lor q) \\lor (\\neg p \\land q)$",
+    "alternativas": [
+      "a) $\\neg p \\land (q \\lor \\neg q)$",
+      "b) $\\neg p$",
+      "c) $(p \\lor q) \\land (p \\lor \\neg q)$",
+      "d) $(p \\lor q) \\lor (p \\land \\neg q)$",
+      "e) $p$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2006-10",
+    "edicao": 2006,
+    "numero": 10,
+    "enunciado": "Considere as seguintes proposições:\n\n**(I)** $\\lnot p \\lor q$\\\n**(I)** $\\lnot(p \\land q)$\\\n**(I)** $p \\rightarrow q$\\\n**(I)** $(V \\rightarrow q)\\lor(p \\rightarrow F)$\n\nQuais das proposições acima são logicamente equivalentes?",
+    "alternativas": [
+      "a) Somente (I)$\\equiv$(III)",
+      "b) Somente (I)$\\equiv$(II)",
+      "c) Somente (I)$\\equiv$(II)$\\equiv$(III)",
+      "d) (I)$\\equiv$(III) e (II)$\\equiv$(III) mas (III)$\\not\\equiv$(IV)",
+      "e) (I), (II), (III) e (IV) são todas equivalentes."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2007-10",
+    "edicao": 2007,
+    "numero": 10,
+    "enunciado": "Dados os conceitos de coerência e completeza de um sistema dedutivo, analise as seguintes afirmativas:\n\nI. Existe pelo menos um sistema de dedução coerente e completo para a Lógica\nProposicional. \\\nII. Todo sistema de dedução para a Lógica de Predicados de Primeira Ordem que é completo também é coerente. \\\nIII. Existe pelo menos um sistema de dedução coerente e completo para a Lógica de Predicados de Primeira Ordem.\n\nA partir da análise, pode-se concluir que é(são) VERDADEIRA(S)",
+    "alternativas": [
+      "a) nenhuma das afirmativas.",
+      "b) somente as afirmativas I e II.",
+      "c) somente as afirmativas I e III.",
+      "d) somente as afirmativas II e III.",
+      "e) todas as afirmativas."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2007-11",
+    "edicao": 2007,
+    "numero": 11,
+    "enunciado": " Considere a seguinte linguagem de primeira ordem:\n- constantes: $a$, $b$\n- variáveis: $x$, $y$\n- predicados unários: $P$\n- predicados binários: $R$\n\nConsidere a seguinte função de interpretação $\\mathcal{I}$ para essa linguagem, com valores no conjunto $\\mathbb{N}$ dos números naturais:\n\n- $I(a) = I(b) = 0$\n- $I(P) = {n |n < 4}$\n- $I(R) = \\{(x, y) | x < y\\}$\n\nDadas as seguintes fórmulas:\n\nI. $P(a)$\\\nII. $\\forall x, y : R(x, y) \\rightarrow R(y, x)$\\\nIII. $\\exists x : R(x,a)$\n\nEm relação à função de interpretação $\\mathcal{I}$ definida acima, pode-se afirmar que é(são) **VERDADEIRA(AS)**",
+    "alternativas": [
+      "a)somente a fórmula I.",
+      "b) somente as fórmulas I e II.",
+      "c) somente a fórmula III.",
+      "d) nenhuma das fórmulas.",
+      "e) todas as fórmulas."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2007-12",
+    "edicao": 2007,
+    "numero": 12,
+    "enunciado": "Seja $*$ um conectivo ternário definido por: $*(\\alpha, \\beta, \\gamma)$ é verdadeiro se, e somente se, ou nenhuma ou apenas uma das fórmulas $\\alpha, \\beta,\\gamma$ é verdadeira. Assinale a alternativa que apresenta a fórmula equivalente a $*(\\alpha, \\beta, \\gamma)$.",
+    "alternativas": [
+      "a) $(\\alpha \\lor \\beta \\lor \\gamma) \\land (\\alpha \\lor (\\lnot\\beta) \\lor (\\lnot\\gamma)) \\land ((\\lnot\\alpha) \\lor \\beta\\lor (\\lnot\\gamma)) \\land ((\\lnot\\alpha) \\lor (\\lnot\\beta) \\lor \\gamma)$",
+      "b) $((\\lnot\\alpha) \\land (\\lnot\\beta) \\land (\\lnot\\gamma)) \\lor (\\alpha \\land (\\lnot\\beta) \\land (\\lnot\\gamma)) \\lor ((\\lnot\\alpha) \\land \\beta \\land (\\lnot\\gamma)) \\lor ((\\lnot \\alpha) \\land (\\lnot(\\lnot\\beta)) \\land \\gamma)$",
+      "c)  $(\\alpha \\lor (\\lnot\\beta) \\lor (\\lnot\\gamma)) \\land ((\\lnot\\alpha) \\lor \\beta\\lor(\\lnot\\gamma)) \\land ((\\lnot\\alpha) \\lor (\\lnot\\beta) \\lor \\gamma)$",
+      "d) $((\\lnot\\alpha) \\land (\\lnot\\beta) \\land (\\lnot\\gamma)) \\lor (\\alpha \\land (\\lnot\\beta) \\land (\\lnot\\gamma)) \\lor ((\\lnot\\alpha) \\land \\beta \\land (\\lnot\\gamma)) \\lor ((\\lnot \\alpha) \\land \\lnot\\beta) \\land \\gamma)$",
+      "e) Nenhuma destas respostas é correta."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2007-13",
+    "edicao": 2007,
+    "numero": 13,
+    "enunciado": "Um conjunto $C$, subconjunto de um conjunto $A$, é decidível se existe um programa que recebe uma entrada $x \\in A$, e sempre para indicando se $x \\in C$ ou se $x \\notin C$. \\\nEntre os conjuntos relacionados abaixo, assinale o que NÃO é decidível.",
+    "alternativas": [
+      "a) O conjunto das fórmulas satisfatíveis da lógica clássica proposicional.",
+      "b) O conjunto dos teoremas da lógica clássica proposicional.",
+      "c) O conjunto dos teoremas da lógica clássica de primeira ordem.",
+      "d) O conjunto das fórmulas da lógica clássica de primeira ordem.",
+      "e) O conjunto das tautologias da lógica clássica proposicional."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Decidibilidade",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - decidibilidade"
+  },
+  {
+    "id": "2008-65",
+    "edicao": 2008,
+    "numero": 65,
+    "enunciado": "Defina os conectivos $NIMP$, $NEQ$, $NAND$, negação da implicação, equivalência e conjunção, respectivamente, como:\n$$\n\\begin{align*}\n& (\\alpha NIMP \\beta) \\equiv \\neg(\\alpha \\rightarrow\\beta)  \\\\\n& (\\alpha NEQ \\beta) \\equiv \\neg(\\alpha \\leftrightarrow\\beta) \\\\\n& (\\alpha NAND \\beta) \\equiv \\neg(\\alpha \\land \\beta) \n\\end{align*}\n$$\nAssinale alternativa que representa um conjunto de conectivos completo.",
+    "alternativas": [
+      "a) $\\{NIMP\\}$",
+      "b) $\\{NEQ\\}$",
+      "c) $\\{NAND\\}$",
+      "d) $\\{NIMP, NEQ\\}$",
+      "e) Nenhum é completo."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2008-66",
+    "edicao": 2008,
+    "numero": 66,
+    "enunciado": "Analise as seguintes afirmativas e assinale a alternativa INCORRETA.",
+    "alternativas": [
+      "a) $1 + 2 + 2^2 + 2^3 + \\dots + 2^n = 2^{n+1} - 1$, para todo $n \\in \\mathbb{N}$.",
+      "b) $C_p^{n + p + 1} = \\sum_{r=0}^p C_r^{n + r}$ para todo $n \\in \\mathbb{N}$ e $p \\in \\mathbb{N}$.",
+      "c) Para todo conjunto $A$, $\\mathcal{P}(A)$ denota o conjunto de todos os subconjuntos de $A$. Se $A \\subseteq B$, então $\\mathcal{P}(A) \\subseteq \\mathcal{P}(B)$.",
+      "d) Se $A_1, A_2, \\dots, A_r$ são conjuntos disjuntos, então \n$$|A_1 \\cup A_2 \\cup \\dots \\cup A_r \\cup B | < |B| + \\sum_{i = 1}^{r}(|A_i - B|) $$",
+      "e) Se a afirmativa (A) é falsa, então a afirmativa (D) é falsa."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Relações de Consequência",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - relacoes de consequencia"
+  },
+  {
+    "id": "2009-13",
+    "edicao": 2009,
+    "numero": 13,
+    "enunciado": "A sentença lógica $ A \\land (B \\lor \\neg C) $ é equivalente a:",
+    "alternativas": [
+      "a)  $ A \\land (\\neg B \\land C) $",
+      "b) $ \\neg A \\lor \\neg (B \\lor \\neg C) $",
+      "c) $ \\neg A \\lor (\\neg B \\land C) $",
+      "d) Todas as respostas anteriores.",
+      "e) Nenhuma das respostas anteriores."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2009-14",
+    "edicao": 2009,
+    "numero": 14,
+    "enunciado": "Se é verdade que as três sentenças a seguir são verdade\n$$\np \\Rightarrow q \\\\\nr \\Rightarrow s \\\\\n(p \\land t) \\Leftrightarrow r\n$$\nentão é verdade que:",
+    "alternativas": [
+      "a) $\\neg s \\Rightarrow (t \\lor p) $",
+      "b) $\\neg r \\Rightarrow \\neg s$",
+      "c) $\\neg q \\Rightarrow \\neg r$",
+      "d) Todas as respostas anteriores.",
+      "e) Nenhuma das respostas anteriores."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2009-15",
+    "edicao": 2009,
+    "numero": 15,
+    "enunciado": "Existem três suspeitos de invadir uma rede de computadores: André, Bruna e Carlos. Sabe-se que a invasão foi efetivamente cometida por um ou por mais de um deles, já que podem ter agido individualmente ou não. Sabe-se, ainda, que:\n\nI. Se André é inocente, então Bruna é culpada. \\\nII. Ou Carlos é culpado ou Bruna é culpada, mas não os dois. \\\nIII. Carlos não é inocente. \n\nCom base nestas considerações, conclui-se que:",
+    "alternativas": [
+      "a) Somente André é inocente.",
+      "b) Somente Bruna é culpada.",
+      "c) Somente Carlos é culpado.",
+      "d) São culpados apenas Bruna e Carlos.",
+      "e) São culpados apenas André e Carlos."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2010-16",
+    "edicao": 2010,
+    "numero": 16,
+    "enunciado": "Os conectores lógicos $ \\lor $, $ \\to $ são lidos como “ou” e “implica”. O operador “não” é representado por $\\neg$. Considerando esta notação, a tabela verdade da proposição $(P \\to Q) \\to (\\neg Q \\lor P )$, assumindo que a sequência de valores de $P$ é {V,V,F,F} e a de $Q$ é {V,F,V,F}, tem os valores:",
+    "alternativas": [
+      "a) {F,F,F,F}",
+      "b) {V,V,V,V}",
+      "c) {V,V,F,V}",
+      "d) {F,F,V,V}",
+      "e) {V,F,V,F}"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2011-11",
+    "edicao": 2011,
+    "numero": 11,
+    "enunciado": "Sobre a função $f: \\mathbb{R} \\to (-1, 1)$ definida pela lei $f(x) = \\frac{x}{1 + |x|}$ é correto afirmar:",
+    "alternativas": [
+      "a) $f$ é bijetora.",
+      "b) $f$ é decrescente.",
+      "c) $f$ não é injetora, mas é sobrejetora.",
+      "d) $f$ não é sobrejetora, mas é injetora.",
+      "e) $f$ não é sobrejetora nem injetora."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2011-14",
+    "edicao": 2011,
+    "numero": 14,
+    "enunciado": "Considere as proposições $p$ e $q$, cujas respectivas negações são $\\bar{p}$ e $\\bar{q}$. Então é correto afirmar que a recíproca de $p \\Rightarrow q$ é:",
+    "alternativas": [
+      "a) $\\bar{q} \\Rightarrow \\bar{p}$",
+      "b) $q \\Rightarrow p$",
+      "c) $\\bar{p} \\Rightarrow \\bar{q}$",
+      "d) $\\bar{p}$ e $q$",
+      "e) $p$ e $\\bar{q}$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2011-16",
+    "edicao": 2011,
+    "numero": 16,
+    "enunciado": "Considere a afirmação a seguir.\n\nSe um número inteiro é primo e quadrado perfeito, então ele é negativo.\n\nCom relação a essa proposição, assinale a alternativa correta.",
+    "alternativas": [
+      "a) A afirmação é falsa.",
+      "b) A afirmação é verdadeira.",
+      "c) A afirmação é verdadeira e falsa.",
+      "d) Não é possível decidir se a afirmação é verdadeira ou falsa.",
+      "e) Não existe um inteiro primo negativo."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2012-16",
+    "edicao": 2012,
+    "numero": 16,
+    "enunciado": "Com relação à proposição $P$: “Seja $a \\in \\mathbb{N}$. Se $a^2$ é ímpar então $a$ é ímpar”, considere as afirmativas a seguir.\n\nI. A proposição “Seja $a \\in \\mathbb{N}$. Se $a^2$ é par então $a$ é par” tem o mesmo valor lógico da proposição $P$. \\\nII. Redução ao absurdo da proposição $P$ dada por “Seja $a \\in \\mathbb{N}$. Se $a^2$ é ímpar ou $a$ é par então tem-se uma contradição” tem o mesmo valor lógico de $P$. \\\nIII. O contrapositivo da proposição $P$ tem o mesmo valor lógico de $P$ e é dado por “Seja $a \\in \\mathbb{N}$. Se $a$ é par então $a^2$ é par”. \\\nIV. A recíproca da proposição P não tem o mesmo valor lógico de P e é dada por “Seja $a \\in \\mathbb{N}$. Se $a$ é ímpar então $a^2$ é ímpar”. \n\nAssinale a alternativa correta.",
+    "alternativas": [
+      "a) Somente as afirmativas I e II são corretas.",
+      "b) Somente as afirmativas I e IV são corretas.",
+      "c) Somente as afirmativas III e IV são corretas.",
+      "d) Somente as afirmativas I, II e III são corretas.",
+      "e) Somente as afirmativas II, III e IV são corretas."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2012-20",
+    "edicao": 2012,
+    "numero": 20,
+    "enunciado": "Considere a sentença, a seguir, com quantificadores que definem o limite de uma sequência $(a_n)$.\n$$\n\\forall \\varepsilon > 0, \\exists{n_0} \\in N, \\forall n > n_0 , |a_n - L| < \\varepsilon\n$$\nAssinale a alternativa que apresenta, corretamente, a negação dessa sentença.",
+    "alternativas": [
+      "a) $\\exists\\varepsilon > 0, \\exists{n_0} \\in N, \\forall n < {n_0} , |a_n  - L| > \\varepsilon$",
+      "b) $\\exists\\varepsilon > 0, \\exists{n_0} \\in N, \\exists n > {n_0}, |a_n  - L| \\geq \\varepsilon$",
+      "c) $\\exists\\varepsilon < 0, \\forall{n_0} \\in N, \\exists n < {n_0}, |a_n  - L| > \\varepsilon$",
+      "d) $\\forall\\varepsilon < 0, \\forall{n_0} \\in N, \\exists n > {n_0}, |a_n - L| \\geq \\varepsilon$",
+      "e) $\\exists\\varepsilon > 0, \\forall{n_0} \\in N, \\exists n > {n_0}, |a_n - L| \\geq \\varepsilon$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2013-11",
+    "edicao": 2013,
+    "numero": 11,
+    "enunciado": "Considere as sentenças a seguir.\n- $P$: Pedro faz as tarefas todos os dias.\n- $Q$: Pedro terá boas notas no final do ano.\n\nAssinale a alternativa que apresenta, corretamente, a tradução em linguagem simbólica da negação da sentença composta a seguir:\n\nSe Pedro faz as tarefas todos os dias, então Pedro terá boas notas no final do ano.",
+    "alternativas": [
+      "a) $P \\to Q$",
+      "b) $P \\leftrightarrow Q$",
+      "c) $P \\land \\neg Q$",
+      "d) $ \\neg P \\land \\neg Q$",
+      "e) $ \\neg P \\land Q$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2013-13",
+    "edicao": 2013,
+    "numero": 13,
+    "enunciado": "Admita que um novo conectivo binário, rotulado pelo símbolo $\\updownarrow$, seja definido pela tabela-verdade a seguir:\n\n|$P$|$Q$|$P \\updownarrow Q$|\n|-|-|-|\n|V|V|F|\n|V|F|V|\n|F|V|F|\n|F|F|F|\n\nCom base nessa definição e nas operações usuais com os conectivos $\\lor$, $\\land$ e $\\sim$, considere as afirmativas a seguir:\n\nI. $P \\updownarrow Q$ é equivalente a $Q \\updownarrow P$. \\\nII. $(P \\updownarrow Q) \\lor (Q \\updownarrow P)$ não é uma contingência. \\\nIII. $(Q \\updownarrow P) \\land (P \\updownarrow Q)$ é uma contradição. \\\nIV. $ \\sim [(Q \\updownarrow P) \\land (P \\updownarrow Q)]$ é uma tautologia. \n\nAssinale a alternativa correta.",
+    "alternativas": [
+      "a) Somente as afirmativas I e II são corretas.",
+      "b) Somente as afirmativas I e IV são corretas.",
+      "c) Somente as afirmativas III e IV são corretas.",
+      "d) Somente as afirmativas I, II e III são corretas.",
+      "e) Somente as afirmativas II, III e IV são corretas."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2013-15",
+    "edicao": 2013,
+    "numero": 15,
+    "enunciado": "Considere as premissas a seguir.\n\nSe Daniel treina nas aulas de tênis, então ele será um grande tenista. Daniel treina nas aulas de tênis e come alimentos saudáveis.\n\nNessas condições e considerando as regras de inferência, assinale a alternativa que apresenta a conclusão correta.",
+    "alternativas": [
+      "a) Daniel come alimentos saudáveis.",
+      "b) Daniel não come alimentos saudáveis.",
+      "c) Daniel não será um grande tenista e come alimentos saudáveis.",
+      "d) Daniel não será um grande tenista.",
+      "e) Daniel será um grande tenista."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2014-11",
+    "edicao": 2014,
+    "numero": 11,
+    "enunciado": "Considere a expressão condicional de um trecho de código Pascal dado a seguir.\n```\nif (B or (A and not (A and B))) then\n    F:= 0\nelse\n    F:= 1;\n```\n\nAssinale a alternativa que apresenta, corretamente, a forma mais simples do termo antecedente da expressão condicional.",
+    "alternativas": [
+      "a) `A or B`",
+      "b) `A and B`",
+      "c) `not (A and B)`",
+      "d) `not (A)`",
+      "e) `not (B)`"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2014-12",
+    "edicao": 2014,
+    "numero": 12,
+    "enunciado": "Considere as premissas a seguir.\n\n**1.** Se $A = B$ então $B = C$.\\\n**2.** $B \\neq C$.\\\n**3**. Se $C > D$ então $D < E$.\\\n**4.** $F \\neq G$ e $A = B$.\\\n**5.** $A = B$ ou $C > D$.\n\nAssinale a alternativa que apresenta, corretamente, a conclusão.",
+    "alternativas": [
+      "a) $F \\neq G$.",
+      "b) $F \\neq G$ e $D < E$.",
+      "c) $A = B$.",
+      "d) $B = C$ ou $D < E$.",
+      "e) $D < E$."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2014-15",
+    "edicao": 2014,
+    "numero": 15,
+    "enunciado": "Admitindo as proposições $L$, $M$, $N$ e os conectivos lógicos usuais $\\lor$ (ou), $\\land$ (e), $\\sim$ (negação), $\\to$ (se ... então) e $\\leftrightarrow$ (se e somente se), considere as afirmativas a seguir.\n\nI. $L \\to ( \\sim L \\to M )$ é tautológica.\\\nII. $\\sim L \\land (L \\land \\sim M)$ é contraditória.\\\nIII. $(L \\lor N ) \\land \\sim N \\Rightarrow L$.\\\nIV. $M \\leftrightarrow N \\Leftrightarrow ( \\sim M \\lor N )$. \n\nAssinale a alternativa correta.",
+    "alternativas": [
+      "a) Somente as afirmativas I e II são corretas.",
+      "b) Somente as afirmativas I e IV são corretas.",
+      "c) Somente as afirmativas III e IV são corretas.",
+      "d) Somente as afirmativas I, II e III são corretas.",
+      "e) Somente as afirmativas II, III e IV são corretas."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2015-11",
+    "edicao": 2015,
+    "numero": 11,
+    "enunciado": "Uma expressão booleana equivalente à expressão $( x \\lor y )\\to z$ é dada por:",
+    "alternativas": [
+      "a) $( x \\to y ) \\lor ( y \\to z )$",
+      "b) $( x \\to z ) \\lor ( y \\to z )$",
+      "c) $( x \\land z )\\to y$",
+      "d) $( x \\to y ) \\land ( y \\to z )$",
+      "e) $( x \\to z ) \\land ( y \\to z )$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2015-12",
+    "edicao": 2015,
+    "numero": 12,
+    "enunciado": "Considere as seguintes premissas (onde $X$, $Y$, $Z$ e $W$ são conjuntos não vazios):\n\n$P_1$: “$X$ está contido em $Y$ e em $Z$, ou $X$ está contido em $W$”. \\\n$P_2$ : “$X$ não está contido em $W$”.\n\nPode-se, então, concluir que, necessariamente,",
+    "alternativas": [
+      "a) $X$ está contido em $Z$.",
+      "b) $Y$ está contido em $Z$.",
+      "c) $Y$ está contido em $Z$ ou em $W$.",
+      "d) $X$ não está contido em $W$ e nem em $Y$.",
+      "e) $Y$ está contido em $W$."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Relações de Consequência",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - relacoes de consequencia"
+  },
+  {
+    "id": "2015-15",
+    "edicao": 2015,
+    "numero": 15,
+    "enunciado": "A expressão $( p \\land (\\neg (\\neg p \\lor q ))) \\lor ( p \\land q)$ , quando simplificada, resulta em",
+    "alternativas": [
+      "a) $\\neg p \\lor q$",
+      "b) $q$",
+      "c) $p$",
+      "d) $p \\land q$",
+      "e) $p \\lor q$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2016-11",
+    "edicao": 2016,
+    "numero": 11,
+    "enunciado": "Considere a seguinte proposição Z: p->(q->r)\n\nA negação da proposição Z é logicamente equivalente à proposição:",
+    "alternativas": [
+      "a) $(p \\land q) \\land (\\neg r)$",
+      "b) $(p \\lor q) \\land (\\neg r)$",
+      "c) $(\\neg p) \\land (\\neg q) \\land r$",
+      "d) $(\\neg p) \\land ((\\neg q) \\lor r)$",
+      "e) $(\\neg p) \\lor ((\\neg q) \\lor r)$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2016-12",
+    "edicao": 2016,
+    "numero": 12,
+    "enunciado": "Se Daniel fala dinamarquês, então eu falo inglês ou alemão. Se eu não falo alemão e nem inglês, então:",
+    "alternativas": [
+      "a) Eu falo dinamarquês.",
+      "b) Eu não falo dinamarquês.",
+      "c) Daniel fala inglês.",
+      "d) Daniel não fala inglês.",
+      "e) Daniel não fala dinamarquês."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2016-15",
+    "edicao": 2016,
+    "numero": 15,
+    "enunciado": "Considere a seguinte proposição: Todas as métricas de avaliação foram positivas.\n\nA negação da proposição acima é logicamente equivalente à afirmação:",
+    "alternativas": [
+      "a) Alguma métrica de avaliação foi negativa.",
+      "b) Nenhuma métrica de avaliação foi positiva.",
+      "c) Todas as métricas de avaliação foram negativas.",
+      "d) Alguma métrica de avaliação foi negativa ou zero.",
+      "e) Todas as métricas de avaliação foram negativas ou zero."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2017-09",
+    "edicao": 2017,
+    "numero": 9,
+    "enunciado": "Aplicando-se a Lei de Morgan, qual é o complemento da função $f = (x + \\bar{y})(yz + x\\bar{y})$",
+    "alternativas": [
+      "a) $f' = \\bar{x} + y\\bar{z}$",
+      "b) $f' = \\bar{x} + \\bar{x} z + y$",
+      "c) $f' = \\bar{x} \\bar{z} + y$",
+      "d) $f' = \\bar{x} \\bar{y} + yz$",
+      "e) $f' = \\bar{x} \\bar{y} + \\bar{y}z$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2017-11",
+    "edicao": 2017,
+    "numero": 11,
+    "enunciado": "Considere as seguintes premissas sobre os alunos de uma universidade:\n\nI. Algum aluno que é estagiário não recebe bolsa. \\\nII. Todos aqueles alunos que estão no último período recebem bolsa.\\\nPortanto,",
+    "alternativas": [
+      "a) algum aluno do último período é estagiário.",
+      "b) todos os alunos do último período não são estagiários.",
+      "c) algum aluno que é estagiário não está no último período.",
+      "d) algum aluno do último período não é estagiário.",
+      "e) todos os alunos que são estagiários não estão no último período."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2017-12",
+    "edicao": 2017,
+    "numero": 12,
+    "enunciado": "Sejam m, n, p, q e r proposições lógicas tais que p é falsa e a proposição composta **((m->n) e (n->p) e (p->q) e (q->r))** é verdadeira, qual preposição abaixo é necessariamente verdadeira?",
+    "alternativas": [
+      "a) n->r",
+      "b) m e r",
+      "c) q->n",
+      "d) m ou r",
+      "e) r->q"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2017-15",
+    "edicao": 2017,
+    "numero": 15,
+    "enunciado": "Considere a seguinte afirmação: “Há uma sorveteria onde todos os sorvetes são doces, mas não contém adoçantes.”\n\nA negação da afirmação acima é logicamente equivalente à afirmação:",
+    "alternativas": [
+      "a) Não há sorveteria que faz sorvetes doces e com adoçantes.",
+      "b) Há uma sorveteria em que sorvete algum é doce ou contém adoçante.",
+      "c) Em toda sorveteria, há um sorvete que não é doce, mas contém adoçante.",
+      "d) Em toda sorveteria, há sempre algum sorvete que não é doce ou que contém adoçante.",
+      "e) Há uma sorveteria em que há algum sorvete que não é doce ou que contém adoçante."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2018-11",
+    "edicao": 2018,
+    "numero": 11,
+    "enunciado": "Considere a proposição abaixo:\\\n“Em toda turma da minha universidade, existe pelo menos um aluno canhoto.”\n\nA negação da proposição acima é logicamente equivalente à proposição:",
+    "alternativas": [
+      "a) Existe uma turma na minha universidade na qual há, no máximo, um aluno canhoto.",
+      "b) Há, pelo menos, uma turma da minha universidade na qual não existe aluno canhoto.",
+      "c) Não há turma na minha universidade na qual todos os alunos sejam canhotos.",
+      "d) Em cada uma das turmas da minha universidade, não há aluno algum que seja canhoto.",
+      "e) Em nenhuma turma da minha universidade, há algum aluno que seja canhoto."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2018-12",
+    "edicao": 2018,
+    "numero": 12,
+    "enunciado": "A proposição $(p \\Leftrightarrow q) \\Rightarrow (p \\Rightarrow q)$ é equivalente a:",
+    "alternativas": [
+      "a) Falso",
+      "b) $p \\Rightarrow \\lnot q$",
+      "c) Verdadeiro",
+      "d) $p \\Rightarrow q$",
+      "e) $(q \\Rightarrow p) \\land (p \\Rightarrow q)$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2018-15",
+    "edicao": 2018,
+    "numero": 15,
+    "enunciado": "Considere as premissas a seguir verdadeiras:\\\nPremissa 1: Se hoje é sábado, então Heide vai à praia e Luiz vai assistir ao jogo de futebol.\\\nPremissa 2: Se Heide vai à praia ou Marcos vai trabalhar, então Alessandra faz o churrasco.\\\nPremissa 3: Hoje, Luiz foi assistir ao jogo de futebol.\\\nPremissa 4: Hoje, Alessandra não fez o churrasco.\\\nÉ correto concluir:",
+    "alternativas": [
+      "a) Hoje é sábado e Heide foi à praia.",
+      "b) Hoje não é sábado e Heide foi à praia.",
+      "c) Hoje não é sábado e Marcos não foi trabalhar.",
+      "d) Heide foi à praia ou Marcos foi trabalhar.",
+      "e) Hoje é sábado e Marcos foi trabalhar."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2019-11",
+    "edicao": 2019,
+    "numero": 11,
+    "enunciado": "Considere as premissas a seguir verdadeiras:\\\nPremissa 1: Se Daenerys come churrasco ou João anda a cavalo, então Cersei assiste a um filme.\\\nPremissa 2: Hoje, Cersei não assistiu a um filme.\\\nPremissa 3: Se hoje é domingo, então Daenerys come churrasco e Jaime treina esgrima.\\\nPremissa 4: Hoje, Jaime foi treinar esgrima.\\\nÉ correto concluir que:",
+    "alternativas": [
+      "a) Hoje é domingo e Daenerys comeu churrasco.",
+      "b) Hoje não é domingo e Daenerys comeu churrasco.",
+      "c) Hoje não é domingo e João não andou a cavalo.",
+      "d) Daenerys comeu churrasco ou João andou a cavalo.",
+      "e) Hoje é domingo e João andou a cavalo."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2019-12",
+    "edicao": 2019,
+    "numero": 12,
+    "enunciado": "Considere a seguinte proposição:\\\nEm todos os cursos de Computação, existe, pelo menos, uma disciplina de Lógica.\n\nA negação da proposição acima é logicamente equivalente à proposição:",
+    "alternativas": [
+      "a) Em nenhum curso de Computação, há alguma disciplina de Lógica.",
+      "b) Há, pelo menos, um curso de Computação no qual não há disciplina de Lógica.",
+      "c) Em cada um dos cursos de Computação, não há disciplina de Lógica.",
+      "d) Não há curso de Computação no qual tenha disciplina de Lógica.",
+      "e) Há um curso de Computação no qual há, no máximo, uma disciplina de Lógica."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2019-15",
+    "edicao": 2019,
+    "numero": 15,
+    "enunciado": "A expressão lógica $\\lnot q \\Rightarrow \\lnot p$ é equivalente a:",
+    "alternativas": [
+      "a) $\\lnot p \\land \\lnot q$",
+      "b) $\\lnot p \\lor q$",
+      "c) $\\lnot p \\Rightarrow q$",
+      "d) $p \\Rightarrow \\lnot q$",
+      "e) $q \\Rightarrow p$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2022-11",
+    "edicao": 2022,
+    "numero": 11,
+    "enunciado": "Dada a afirmação:\\\n\"Exatamente uma pessoa entre Marcos e Heide viajou\".\n\nA negação da afirmação acima é logicamente equivalente à:",
+    "alternativas": [
+      "a) Ambos viajaram.",
+      "b) Ambos não viajaram.",
+      "c) Marcos ou Heide não viajou.",
+      "d) Ambos viajaram ou ambos não viajaram.",
+      "e) Pelo menos um entre Marcos e Heide viajou."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2022-12",
+    "edicao": 2022,
+    "numero": 12,
+    "enunciado": "Analise a proposição abaixo:\\\n\"Existe pelo menos uma cidade em que todos os hospitais possuem, pelo menos, 30 leitos\".\n\nA negação da proposição acima é logicamente equivalente à proposição:",
+    "alternativas": [
+      "a) Há uma cidade em que existe pelo menos um hospital com, no máximo, 29 leitos.",
+      "b) Em no máximo uma cidade, existe um hospital que possui, no máximo, 100 leitos.",
+      "c) Em cada cidade, existe pelo menos uma escola que possui, pelo menos, 30 leitos.",
+      "d) Existe nenhuma cidade em que todos os hospitais possuam, no máximo, 30 leitos.",
+      "e) Em todas as cidades, existe pelo menos um hospital que possui, no máximo, 29 leitos."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "E",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2022-15",
+    "edicao": 2022,
+    "numero": 15,
+    "enunciado": "Dado duas proposições lógicas q e p.\nA proposição lógica $\\neg{p} \\Rightarrow q$ é falsa se, e somente se, quando a proposição abaixo for verdadeira:",
+    "alternativas": [
+      "a) $p \\text{ ou } q$",
+      "b) $\\neg p$",
+      "c) $\\neg (p \\text{ ou } q)$",
+      "d) $\\neg (p \\text{ e } q)$",
+      "e) $\\neg q$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2023-07",
+    "edicao": 2023,
+    "numero": 7,
+    "enunciado": "Calcule o $\\lim_{x \\to 10^{-3}} log(10 \\cdot x)$.",
+    "alternativas": [
+      "a) 0",
+      "b) -3",
+      "c) -2",
+      "d) 1",
+      "e) 100"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2023-13",
+    "edicao": 2023,
+    "numero": 13,
+    "enunciado": "Analise a seguinte proposição: \"Existe pelo menos uma universidade em que todos os cursos têm, pelo menos, 100 alunos\". A negação dessa proposição é logicamente equivalente à proposição:",
+    "alternativas": [
+      "a) Em todas as universidades existe pelo menos um curso que possui, no máximo, 99 alunos.",
+      "b) Em no máximo uma universidade existe um curso que possui, no máximo, 101 alunos.",
+      "c) Há uma universidade em que existe pelo menos um curso com, no máximo, 99 alunos.",
+      "d) Em cada universidade existe pelo menos um curso que possui, pelo menos, 100 alunos.",
+      "e) Existe nenhuma universidade em que os cursos possuam, no máximo, 100 alunos."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2023-14",
+    "edicao": 2023,
+    "numero": 14,
+    "enunciado": "Sendo p e q proposições simples, considere a proposição composta $E(p,q)$, cujos valores lógicos estão na tabela verdade a seguir:\n\n|$p$|$q$|$E(p,q)$|\n|-|-|-|\n|F|F|V|\n|F|V|V|\n|V|F|F|\n|V|V|V|\n\nQual é o valor da expressão $E$?",
+    "alternativas": [
+      "a) $p \\rightarrow q$",
+      "b) $p \\text{ ou } q$",
+      "c) $q \\rightarrow p$",
+      "d) $p \\text{ ou } \\neg q$",
+      "e) $(\\neg p) \\to (p \\text{ ou } q)$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "A",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2023-15",
+    "edicao": 2023,
+    "numero": 15,
+    "enunciado": "A expressão lógica $p\\Rightarrow q$ é equivalente a:",
+    "alternativas": [
+      "a) $\\lnot p \\land \\lnot q$",
+      "b) $\\lnot p\\Rightarrow q$",
+      "c) $p\\Rightarrow \\lnot q$",
+      "d) $\\lnot q\\Rightarrow \\lnot p$",
+      "e) $q\\Rightarrow p$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2023-16",
+    "edicao": 2023,
+    "numero": 16,
+    "enunciado": "Utilizando as leis de Morgan, obtenha uma expressão em forma de somas de produtos para a seguinte função:\n$$\nF = \\overline{(x + y)\\overline{(x\\bar{y} + z)}}$$",
+    "alternativas": [
+      "a) $\\bar{x} + \\bar{x}z + y$",
+      "b) $\\overline{xy} + \\bar{x}y + y$",
+      "c) $\\bar{x}y + \\bar{x}y + z$",
+      "d) $\\bar{y} + z$",
+      "e) $\\overline{xy}+ \\bar{x}y$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2024-13",
+    "edicao": 2024,
+    "numero": 13,
+    "enunciado": "A expressão lógica $\\neg p\\rightarrow \\neg q$ é equivalente a:",
+    "alternativas": [
+      "a) $\\neg q \\land \\neg p$",
+      "b) $\\neg q \\to p$",
+      "c) $q \\to \\neg p$",
+      "d) $q \\to p$",
+      "e) $p \\to q$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2024-14",
+    "edicao": 2024,
+    "numero": 14,
+    "enunciado": "Dadas duas proposições lógicas $q$ e $p$, a proposição lógica $\\neg (p \\text{ ou } q)$ é verdadeira se,\ne somente se, for falsa a proposição:",
+    "alternativas": [
+      "a) $p$ e $q$",
+      "b) $\\neg p$",
+      "c) $\\neg p \\rightarrow q$",
+      "d) $\\neg p\\rightarrow \\neg q$",
+      "e) $\\neg q$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "C",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2024-15",
+    "edicao": 2024,
+    "numero": 15,
+    "enunciado": "Considere as premissas verdadeiras a seguir:\n- Premissa 1: Se Ana Paula joga vôlei ou Joaquim joga videogame, então Victória vai à praia.\n- Premissa 2: Hoje, Victória não foi à praia.\n- Premissa 3: Se hoje é sábado, então Ana Paula joga vôlei e Caio treina boxe.\nConsiderando as premissas apresentadas, é correto afirmar que:",
+    "alternativas": [
+      "a) Hoje é sábado e Ana Paula jogou vôlei.",
+      "b) Hoje não é sábado e Joaquim não jogou videogame.",
+      "c) Ana Paula jogou vôlei ou Joaquim jogou videogame.",
+      "d) Hoje é sábado e Joaquim jogou videogame.",
+      "e) Hoje não é sábado e Ana Paula jogou vôlei."
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "B",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  },
+  {
+    "id": "2024-16",
+    "edicao": 2024,
+    "numero": 16,
+    "enunciado": "Utilizando as leis de Morgan, assinale a alternativa que apresenta uma expressão em forma de somas de produtos para a seguinte função:\n$$\nF =\n\\overline{(\\bar{A}+C) \\cdot (B + \\bar{D})}$$",
+    "alternativas": [
+      "a) $A\\bar{C} + B$",
+      "b) $A\\bar{C} + BD$",
+      "c) $AC + B$",
+      "d) $A\\bar{C}+ \\bar{B}D$",
+      "e) $A + B$"
+    ],
+    "area_conhecimento": "Matemática",
+    "area": "Lógica Matemática",
+    "subarea": "Lógica Proposicional e de Predicados",
+    "gabarito": "D",
+    "atributo_rag": "matematica - logica matematica - logica proposicional e de predicados"
+  }
+]
