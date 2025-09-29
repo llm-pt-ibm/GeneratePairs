@@ -12,15 +12,25 @@ import datasets
 import openai
 
 ##############################################################
-# 0. random stuff (e.g., file operations)
+# 0. Funções de Arquivo (sem alterações)
 
 
 def read_jsonl(file_path: str) -> List[Any]:
+    """
+    Lê um arquivo .jsonl, agora ignorando linhas em branco para evitar erros.
+    """
     res = []
     with open(file_path, 'r', encoding='utf-8') as file:
         for line in file:
-            json_obj = json.loads(line.strip())
-            res.append(json_obj)
+            # Remove espaços em branco do início e do fim da linha
+            stripped_line = line.strip()
+            # Apenas processa a linha se ela não estiver vazia
+            if stripped_line:
+                try:
+                    json_obj = json.loads(stripped_line)
+                    res.append(json_obj)
+                except json.JSONDecodeError:
+                    print(f"Aviso: Pulando linha com JSON mal formado: {stripped_line}")
     return res
 
 
@@ -31,19 +41,97 @@ def write_to_jsonl(file_path: str, data: List[Any]) -> None:
             f.write(json_line + '\n')
 
 ##############################################################
-# 1. load/sample dataset
-#
-# to add support for a new dataset, create a load frunction similar to those below
-# the load function should return a list of dict objects, with the following keys:
-#   id: unique uuid identifier for this question (see load_mmlu_pro for an example of how to construct them in a reproducable way)
-#   original_id: original idenfier from origianl dataset (set to None if not applicable)
-#   source: reference to original dataset/subset (if applicable)
-#   question: the input passed to the model
-#   ground truth: the correct responses (or anything that is necessary e.g., test cases).
-#                  Additional processing of the ground truth can be done by subclassing SolutionChecker overriding get_ground_truth()
-#
-# also, add a corresponding if statement to load_examples_from_dataset_name, which maps the dataset name to the load function
+# 1. Carregamento de Datasets
 
+# --- NOVA ADIÇÃO: Função Auxiliar para Padronização ---
+def _formatar_exemplo_multipla_escolha(
+    id_original: str,
+    fonte: str,
+    enunciado: str,
+    alternativas: List[str],
+    gabarito_letra: str
+) -> Dict[str, Any]:
+    """
+    Função auxiliar para padronizar qualquer questão de múltipla escolha
+    para o formato que nosso pipeline espera.
+    """
+    prompt = enunciado
+    letras = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    
+    alternativas_formatadas = []
+    for i, alt_texto in enumerate(alternativas):
+        # Remove prefixos como "a) " ou "B) " para garantir um padrão único
+        texto_limpo = re.sub(r'^[a-zA-Z]\)\s*', '', alt_texto).strip()
+        alternativas_formatadas.append(f"({letras[i]}) {texto_limpo}")
+
+    prompt += "\n" + "\n".join(alternativas_formatadas)
+    
+    # Adiciona as mesmas instruções do MMLU-pro para garantir a consistência
+    prompt += "\n\nSe você não conseguir determinar a resposta correta de múltipla escolha, dê o seu melhor palpite. Depois de ter sua resposta, duplique essa letra cinco vezes em uma única string. Por exemplo, se a resposta for K, escreva KKKKK.\nVamos pensar passo a passo."
+
+    # Encontra o índice da letra do gabarito para pegar o texto completo
+    gabarito_letra_upper = gabarito_letra.upper()
+    try:
+        gabarito_index = letras.find(gabarito_letra_upper)
+        if gabarito_index == -1: # Se a letra não for encontrada
+            raise IndexError
+        ground_truth = alternativas_formatadas[gabarito_index]
+    except (IndexError, AttributeError):
+        # Fallback caso o gabarito seja inválido ou não seja uma string
+        ground_truth = gabarito_letra_upper
+
+    example = {
+        "original_id": id_original,
+        "source": fonte,
+        "question": prompt,
+        "ground_truth": ground_truth,
+    }
+
+    unique_id = str(uuid.uuid5(
+        uuid.NAMESPACE_DNS, json.dumps(example, sort_keys=True)))
+    example_with_unique_id = {"question_id": unique_id}
+    example_with_unique_id.update(example)
+    return example_with_unique_id
+
+# --- NOVA ADIÇÃO: Carregador para os datasets de Knowledge ---
+def load_knowledge(file_path: str = "knowledge_data.jsonl") -> List[Dict[str, Any]]:
+    """
+    Nova função para carregar as questões do arquivo knowledge_data.jsonl,
+    que contém uma mistura de formatos (BLUEX, ENEM, HEALTHQA).
+    """
+    dados_brutos = read_jsonl(file_path)
+    exemplos_formatados = []
+
+    for item in dados_brutos:
+        # Tenta extrair os campos comuns. Continua se algum campo essencial faltar.
+        enunciado = item.get("question")
+        alternativas = item.get("alternatives")
+        gabarito_letra = item.get("label")
+
+        if not all([enunciado, alternativas, gabarito_letra]):
+            continue
+
+        # Identifica a fonte do dado e extrai as informações
+        if "subject" in item: # Critério para BLUEX
+            fonte = f"bluex-{item.get('id', 'unknown')}"
+            id_original = item.get("id")
+        elif "exam" in item: # Critério para ENEM
+            fonte = f"enem-{item.get('exam', 'unknown')}-{item.get('id', 'unknown')}"
+            id_original = item.get("id")
+        elif "source" in item: # Critério para HEALTHQA
+            fonte = f"healthqa-{item.get('source', 'unknown')}-{item.get('id', 'unknown')}"
+            id_original = item.get("id")
+        else:
+            # Pula linhas que não correspondem a nenhum formato conhecido
+            continue
+
+        # Usa a função auxiliar para padronizar os dados extraídos
+        exemplo_padronizado = _formatar_exemplo_multipla_escolha(
+            id_original, fonte, enunciado, alternativas, gabarito_letra
+        )
+        exemplos_formatados.append(exemplo_padronizado)
+        
+    return exemplos_formatados
 
 def load_mmlu_pro() -> List[Dict[str, Any]]:
     dataset = datasets.load_dataset("TIGER-Lab/MMLU-Pro", split="test")
@@ -63,8 +151,6 @@ def load_mmlu_pro() -> List[Dict[str, Any]]:
                 question += f"\n({letter}) {option}"
             question += "\nIf you cannot determine the correct multiple-choice answer, take your best guess. Once you have your answer, please duplicate that letter five times in a single string. For example, if the answer is K, then write KKKKK.\nLet's think step by step."
 
-            print(question)
-
             ground_truth = f"({letters[row['answer_index']]}) {row['options'][row['answer_index']]}"
 
             example = {
@@ -83,32 +169,27 @@ def load_mmlu_pro() -> List[Dict[str, Any]]:
 
     return examples
 
-
+# --- NOVA ADIÇÃO: Atualização da função "Dispatcher" ---
 def load_examples_from_dataset_name(dataset_name: str) -> Any:
+    """
+    Função "dispatcher" que chama o carregador correto com base no nome do dataset.
+    """
     if dataset_name == "mmlu_pro":
         return load_mmlu_pro()
+    elif dataset_name == "knowledge":
+        # Adiciona o novo dataset aqui. Assume que o arquivo está na pasta raiz.
+        return load_knowledge("/Users/ronalddmatias/GeneratePairs/knowledge/knowledge_data.jsonl")
     else:
         raise NotImplementedError(
-            f"Loader for {dataset_name} is not yet implemented.")
+            f"O carregador para o dataset '{dataset_name}' ainda não foi implementado.")
 
 ##############################################################
-# 2. generate n_responses responses for each question
+# 2. Geração de Respostas (sem alterações)
+##############################################################
 
 
 ##############################################################
-# 3. check correctness of each repsonses for each question
-#
-# The SolutionChecker is an abstract class, intended to be subclassed to exhibit specific behavior
-# New solution checkers must override __init__() to define the client, system message, and user message template
-# Feel free to also override get_ground_truth for more customization
-#
-# Internally, we route requests containing the question, response, ground truth to "gpt-4o-mini-2024-07-18",
-# which returns a json object with the key "is_correct" indicating correctness. Be sure that the system message inlcudes such instructions
-#
-# Like many other parts of the pipeline, the check method must be async.
-#
-# One special case is evaluating code agianst test cases via the code interpreter, see dataset/check_answers/HumanEvalSolutionChecker
-
+# 3. Verificação de Correção
 
 class SolutionChecker(ABC):
 
@@ -175,19 +256,20 @@ class Regex5TimesMultipleChoiceSolutionChecker(RegexMultipleChoiceSolutionChecke
     def __init__(self):
         self.pattern = r'\b([A-J])\1{4}\b'
 
-
+# --- NOVA ADIÇÃO: Atualização da função "Dispatcher" ---
 def get_solution_check_from_dataset_name(dataset_name: str) -> Any:
-    if dataset_name in ["mmlu_pro"]:
+    """
+    Retorna a lista de verificadores corretos para um determinado dataset.
+    """
+    # Adicionamos nosso novo dataset à lista dos que usam os verificadores padrão.
+    if dataset_name in ["mmlu_pro", "knowledge"]:
         return [MultipleChoiceSolutionChecker(), Regex5TimesMultipleChoiceSolutionChecker()]
     else:
         raise NotImplementedError(
-            f"Solution checker for {dataset_name} is not yet implemented.")
+            f"O verificador para o dataset '{dataset_name}' ainda não foi implementado.")
 
 ##############################################################
-# 4. compute intermediate metrics
-# Hopefully this is self-explanatory, basically just trying to understand how the response_model performs on the dataset
-
-
+# 4. Métricas Intermediárias (sem alterações)
 def compute_intermediate_metrics(examples: List[Dict[str, Any]]) -> None:
     n_examples = len(examples)
     n_all_correct = sum(
@@ -207,12 +289,7 @@ def compute_intermediate_metrics(examples: List[Dict[str, Any]]) -> None:
     print(f"{n_some_correct} of {n_examples} ({(100*n_some_correct/n_examples):.2f}%) questions contained both correct and incorrect responses.")
 
 ##############################################################
-# 5. sample pairs for judging
-# Here we sample pairs of correct/incorrect responses from each question
-# default behavior is to sample just one pair from each questions, but can be configured via max_pairs_per_question
-# pairs have a different json structure, see below
-
-
+# 5. Amostragem de Pares (sem alterações)
 def sample_pairs(examples: List[Dict[str, Any]], max_pairs_per_question: int = 1) -> List[Dict[str, Any]]:
 
     pairs = []

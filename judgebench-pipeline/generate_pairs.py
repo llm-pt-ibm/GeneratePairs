@@ -26,6 +26,7 @@ async def generate_responses(examples: List[Dict[str, Any]], model: str, n_respo
                     response = await answer_api.chat(
                         messages = [{"role": "user", "content": question}],
                         temperature = 1.0,
+                        top_p = 0.9,
                     )
                 except Exception as e:
                     response = None
