@@ -3,12 +3,15 @@ import argparse
 import asyncio
 import os
 import random
+import json
 
 from tqdm.asyncio import tqdm_asyncio
 
 import utils
 import model_utils
 
+# --- FUNÇÃO ATUALIZADA ---
+# Implementa a metodologia de "solicitação explícita de erros" com um prompt refinado.
 async def generate_responses(examples: List[Dict[str, Any]], model: str, n_responses: int = 5, concurrency_limit: int = 1) -> List[Dict[str, Any]]:
     semaphore = asyncio.Semaphore(concurrency_limit)
     answer_api = model_utils.get_chat_api_from_model(model)
@@ -16,28 +19,63 @@ async def generate_responses(examples: List[Dict[str, Any]], model: str, n_respo
     async def generate_response(example: Dict[str, Any]):
         async with semaphore:
             
-            question = example["question"]
-            ground_truth = example["ground_truth"]
+            # --- PROMPT REFINADO ---
+            # Este prompt inclui uma instrução explícita para o modelo não se "auto-corrigir".
+            prompt_novo = f"""
+            Sua tarefa é gerar um conjunto de {n_responses} respostas para a questão de múltipla escolha a seguir.
+
+            REGRAS:
+            1.  **Exatamente UMA** dessas {n_responses} respostas deve ser a correta, com um raciocínio claro e preciso.
+            2.  As outras **{n_responses - 1} respostas** devem ser SUTILMENTE INCORRETAS.
+            3.  Uma resposta sutilmente incorreta é aquela que apresenta um raciocínio que parece plausível, mas que contém um erro lógico, de cálculo ou de interpretação.
+            4.  **IMPORTANTE:** Ao escrever o raciocínio para uma resposta incorreta, você deve atuar como alguém que acredita genuinamente que aquele raciocínio está correto. Apresente o argumento com confiança. **NÃO INCLUA frases que revelem que a resposta está errada, que é uma suposição, ou que o cálculo correto seria outro.**
+            5.  Para cada resposta, forneça um raciocínio passo a passo e, ao final, declare a alternativa escolhida no formato 'XXXXX' (ex: 'AAAAA').
             
+            Formato da Saída: Sua resposta DEVE ser um objeto JSON válido contendo uma única chave "respostas". O valor deve ser uma lista de {n_responses} objetos, onde cada objeto tem duas chaves: "raciocinio" e "resposta_final".
+
+            Exemplo do formato de saída:
+            {{
+              "respostas": [
+                {{
+                  "raciocinio": "Raciocínio correto...",
+                  "resposta_final": "AAAAA"
+                }},
+                {{
+                  "raciocinio": "Raciocínio confiante, mas com um erro sutil...",
+                  "resposta_final": "BBBBB"
+                }}
+              ]
+            }}
+
+            Aqui está a questão:
+            ---
+            {example["question"]}
+            """
+
             generated_responses = []
-            for _ in range(n_responses):
+            try:
+                response_json_str = await answer_api.chat(
+                    messages=[{"role": "user", "content": prompt_novo}],
+                    temperature=0.8,
+                    response_format={"type": "json_object"},
+                )
                 
-                try:
-                    response = await answer_api.chat(
-                        messages = [{"role": "user", "content": question}],
-                        temperature = 1.0,
-                        top_p = 0.9,
-                    )
-                except Exception as e:
-                    response = None
-                    print(f"Failed to generate a response for question {example['question_id']} due to the following error: {e}.")
-                
-                generated_responses.append({
-                    "model": model,
-                    "response": response,
-                    "is_correct": None,
-                })
-                
+                response_data = json.loads(response_json_str)
+                respostas_do_modelo = response_data.get("respostas", [])
+
+                for resp in respostas_do_modelo:
+                    full_response_text = f"{resp.get('raciocinio', '')}\n\n{resp.get('resposta_final', '')}"
+                    generated_responses.append({
+                        "model": model,
+                        "response": full_response_text.strip(),
+                        "is_correct": None,
+                    })
+
+            except Exception as e:
+                print(f"Falha ao gerar o conjunto de respostas para a questão {example['question_id']} devido ao seguinte erro: {e}.")
+                for _ in range(n_responses):
+                    generated_responses.append({"model": model, "response": None, "is_correct": None})
+
             example["generated_responses"] = generated_responses
 
     tasks = [asyncio.create_task(generate_response(example)) for example in examples]
@@ -127,20 +165,12 @@ def main(args: argparse.Namespace) -> None:
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--dataset_name', type=str, required=True) # dataset name, should correspond to an entry in utils/load_examples_from_dataset_name
-    parser.add_argument('--response_model', type=str, required=True) # all openai/claude models are supported, other models are routed through VLLM client.
-    parser.add_argument('--n_responses', type=int, default=5) # number of responses to generate for question
-    parser.add_argument('--max_pairs_per_question', type=int, default=1) # maximum number of pairs to construct from each question
-    parser.add_argument('--seed', type=int, default=42) # seed to use
-    parser.add_argument('--concurrency_limit', type=int, default=1) # some stages use asyncio to speed things up, 10 is usally a good value here
-    parser.add_argument('--questions_with_responses', type=str, default=None) # path to stage2.jsonl file that contains generated responses prior to their checking correctness
+    parser.add_argument('--dataset_name', type=str, required=True)
+    parser.add_argument('--response_model', type=str, required=True)
+    parser.add_argument('--n_responses', type=int, default=5)
+    parser.add_argument('--max_pairs_per_question', type=int, default=1)
+    parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--concurrency_limit', type=int, default=1)
+    parser.add_argument('--questions_with_responses', type=str, default=None)
     args = parser.parse_args()
     main(args)
-    
-# some example run commands
-#
-# run the full pipeline to generate pairs
-# python generate_pairs.py --dataset_name mmlu_pro --response_model gpt-4o-mini-2024-07-18 --n_responses 5 --max_pairs_per_question 1  --seed 42 --concurrency_limit 10
-#
-# secondary entry point between stages 2 and 3: given questions with responses, will check correctness and sample pairs for judging
-# python generate_pairs.py --dataset_name mmlu_pro --response_model gpt-4o-mini-2024-07-18 --n_responses 5 --max_pairs_per_question 1 --seed 42 --concurrency_limit 10 --questions_with_responses /path/to/stage2.jsonl

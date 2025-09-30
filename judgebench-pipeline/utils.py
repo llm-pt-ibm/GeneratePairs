@@ -178,7 +178,7 @@ def load_examples_from_dataset_name(dataset_name: str) -> Any:
         return load_mmlu_pro()
     elif dataset_name == "knowledge":
         # Adiciona o novo dataset aqui. Assume que o arquivo está na pasta raiz.
-        return load_knowledge("/Users/ronalddmatias/GeneratePairs/knowledge/knowledge_data.jsonl")
+        return load_knowledge("/Users/ronalddmatias/GeneratePairs/knowledge/data.jsonl")
     else:
         raise NotImplementedError(
             f"O carregador para o dataset '{dataset_name}' ainda não foi implementado.")
