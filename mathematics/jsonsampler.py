@@ -1,8 +1,8 @@
 import json
 import random
 
-INPUT_FILE = "questions_HEALTHQA.jsonl"   # seu arquivo original
-OUTPUT_FILE = "SAMPLE_30_HEALTHQA.jsonl"  # nome do arquivo de saída
+INPUT_FILE = "math_bluex.jsonl"   # seu arquivo original
+OUTPUT_FILE = "SAMPLE_30_BLUEX.jsonl"  # nome do arquivo de saída
 
 # Lê todas as linhas do arquivo
 with open(INPUT_FILE, "r", encoding="utf-8") as f:
