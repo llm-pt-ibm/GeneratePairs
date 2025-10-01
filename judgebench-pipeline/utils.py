@@ -145,6 +145,31 @@ def load_math(file_path: str) -> List[Dict[str, Any]]:
         
     return exemplos_formatados
 
+def load_reasoning(file_path: str) -> List[Dict[str, Any]]:
+    """
+    Carrega as questões de 'reasoning' (POSCOMP - Lógica Matemática).
+    """
+    dados_brutos = read_jsonl(file_path)
+    exemplos_formatados = []
+
+    for item in dados_brutos:
+        enunciado = item.get("question")
+        alternativas = item.get("alternatives")
+        gabarito_letra = item.get("label")
+        if not all([enunciado, alternativas, gabarito_letra]): continue
+
+        # Critério específico para identificar as questões de Lógica Matemática da POSCOMP
+        if item.get("area") == "Lógica Matemática":
+            fonte = f"poscomp-reasoning-{item.get('id', 'unknown')}"
+            id_original = item.get("id")
+            
+            exemplo_padronizado = _formatar_exemplo_multipla_escolha(
+                id_original, fonte, enunciado, alternativas, gabarito_letra
+            )
+            exemplos_formatados.append(exemplo_padronizado)
+            
+    return exemplos_formatados
+
 def load_mmlu_pro() -> List[Dict[str, Any]]:
     # A implementação foi omitida por brevidade, mas o código original permanece aqui
     pass
@@ -159,6 +184,8 @@ def load_examples_from_dataset_name(dataset_name: str) -> Any:
         return load_knowledge("knowledge_data.jsonl")
     elif dataset_name == "math":
         return load_math("/Users/ronalddmatias/GeneratePairs/mathematics/data.jsonl")
+    elif dataset_name == "reasoning":
+        return load_reasoning("/Users/ronalddmatias/GeneratePairs/reasoning/reasoning_poscomp.jsonl")
     else:
         raise NotImplementedError(
             f"O carregador para o dataset '{dataset_name}' ainda não foi implementado.")
@@ -224,7 +251,7 @@ def get_solution_check_from_dataset_name(dataset_name: str) -> Any:
     """
     Retorna a lista de verificadores corretos para um determinado dataset.
     """
-    if dataset_name in ["mmlu_pro", "knowledge", "math"]:
+    if dataset_name in ["mmlu_pro", "knowledge", "math", "reasoning"]:
         return [MultipleChoiceSolutionChecker(), Regex5TimesMultipleChoiceSolutionChecker()]
     else:
         raise NotImplementedError(
