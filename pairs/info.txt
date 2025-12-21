@@ -1,0 +1,6 @@
+Code -> 53 Questions
+Knowledge -> 87 Questions
+Math -> 72 Questions
+Reasoning -> 50 Questions
+
+Total = 262 Questions
