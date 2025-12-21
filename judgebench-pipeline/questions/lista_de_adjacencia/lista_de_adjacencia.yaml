@@ -1,0 +1,141 @@
+name: lista_de_adjacencia
+label: Lista de Adjacencia
+tags: [grafos]
+text: |
+
+    # Lista de Adjacência
+    
+    **Obs: ** É recomendado resolver o exercício Matriz de Adjacência antes desse exercício.
+    
+    A lista de adjacência é uma forma de representar um grafo computacionamente. Considerando um grafo com N vértices,
+    cada nó irá possuir uma lista (essa lista pode ser uma linked list, um vetor ou até mesmo outras estruturas como hashmaps)
+    contendo uma estrutura que representa uma ligação deste nó para outros.
+    
+    Para ficar mais claro observe o exemplo abaixo, que compara uma matriz de adjacência a uma lista de adjacência. 
+
+    ![Tree](http://www.dsc.ufcg.edu.br/~jarthur/figuras_tst_eda/lista_adj.gif)
+    
+    Diferentemente da matriz de adjacência, onde precisamos alocar uma memória fixa de N x N independentemente da
+    existência de uma aresta entre dois nós. Numa lista de adjacência alocamos apenas a memória necessária, inicialmente
+    alocamos uma lista para cada nó (N) e a medida que arestas vão sendo adicionadas alocamos mais memória.
+    
+    Essa solução é ideal para grafos esparsos, isto é, grafos que não tem muitas arestas comparadas com o número de vértices.
+    E também oferece a oportunidade de obter todos os vizinhos de um nó em O(1), além de ser fácil guardar mais informações
+    sobre uma aresta, já que a lista de adjacência pode armazenar qualquer estrutura.
+    
+    Imagine que possa existir múltiplas arestas entre dois nós A e B, como representar essa situação numa
+    matriz de adjacência? Para a lista de adjacência a solução é bem mais intuitiva, apenas inclua múltiplas arestas na lista
+    de A (e também na de B caso o grafo seja não direcionado). Podemos adicionar identificadores às arestas para diferenciá-las
+    se desejado.
+    
+    Sem mais delongas, nesse exercício implemente uma lista de adjacência.
+    
+    Para este problema, iremos considerar um grafo ponderado que pode conter loops e múltiplas arestas entre dois nós.
+    Implemente um programa que recebe as arestas deste grafo e imprima a lista de adjacência no caso do grafo ser direcionado
+    ou não direcionado.
+    
+    **Dica : ** Você pode implementar a lista de adjacência como um array de array lists.
+
+    ## Entrada
+
+    A primeira linha irá conter dois inteiros N e M, respectivamente o número de nós no grafo e o número de arestas.
+    Cada nó é identificado com um valor de 0 a N-1. As próximas M linhas são as arestas, cada linha irá conter 3 inteiros A, B e W.
+    A e B são nós (0 <= A, B <= N-1), onde a aresta parte de A para B no caso do grafo direcionado, e liga AB e BA no caso do grafo
+    não direcionado. W é o peso desta aresta. 
+
+    ## Saída
+
+    Seu programa deve imprimir primeiramente a lista de adjacência considerando um grafo direcionado e depois considerando
+    um grafo não direcionado.
+    
+    Uma aresta na saída abaixo é representada por um par (B, W), onde B é o vértice "final" da aresta e W o peso da aresta.
+    O vértice "inicial" pode ser obtido através do indíce no array que armazena as listas de cada nó.
+  
+    Seu programa deve imprimir a saída exatamente como no exemplo de execução abaixo. Preste atenção para o número de espaços
+    e escrita correta.
+    
+    **Obs: ** Cuidado com o caso de loops, para grafos direcionados se A == B não é preciso adicionar a aresta duas vezes.
+
+    ## Exemplo de execução
+    
+        $ javac Solution.java; java Solution
+        3 2
+        1 2 100
+        2 0 200
+        Grafo direcionado
+        listaDeAdjacencia[0] ->
+        listaDeAdjacencia[1] -> (2, 100)
+        listaDeAdjacencia[2] -> (0, 200)
+        Grafo nao direcionado
+        listaDeAdjacencia[0] -> (2, 200)
+        listaDeAdjacencia[1] -> (2, 100)
+        listaDeAdjacencia[2] -> (1, 100) (0, 200)
+    ## Restrições
+
+       Utilizar sua própria implementação de lista de adjacência.
+
+tests:
+-   input: |
+        1 1
+        0 0 100
+    output: |
+        Grafo direcionado
+        listaDeAdjacencia[0] -> (0, 100)
+        Grafo nao direcionado
+        listaDeAdjacencia[0] -> (0, 100)
+-   input: |
+        10 2
+        1 2 100
+        2 0 200
+    output: |
+        Grafo direcionado
+        listaDeAdjacencia[0] ->
+        listaDeAdjacencia[1] -> (2, 100)
+        listaDeAdjacencia[2] -> (0, 200)
+        listaDeAdjacencia[3] ->
+        listaDeAdjacencia[4] ->
+        listaDeAdjacencia[5] ->
+        listaDeAdjacencia[6] ->
+        listaDeAdjacencia[7] ->
+        listaDeAdjacencia[8] ->
+        listaDeAdjacencia[9] ->
+        Grafo nao direcionado
+        listaDeAdjacencia[0] -> (2, 200)
+        listaDeAdjacencia[1] -> (2, 100)
+        listaDeAdjacencia[2] -> (1, 100) (0, 200)
+        listaDeAdjacencia[3] ->
+        listaDeAdjacencia[4] ->
+        listaDeAdjacencia[5] ->
+        listaDeAdjacencia[6] ->
+        listaDeAdjacencia[7] ->
+        listaDeAdjacencia[8] ->
+        listaDeAdjacencia[9] ->
+
+-   category: public
+    input: |
+        3 2
+        1 2 1
+        2 0 1
+    output: |
+        Grafo direcionado
+        listaDeAdjacencia[0] ->
+        listaDeAdjacencia[1] -> (2, 1)
+        listaDeAdjacencia[2] -> (0, 1)
+        Grafo nao direcionado
+        listaDeAdjacencia[0] -> (2, 1)
+        listaDeAdjacencia[1] -> (2, 1)
+        listaDeAdjacencia[2] -> (1, 1) (0, 1)
+
+-   category: public
+    input: |
+        2 3
+        0 0 100
+        1 1 200
+        0 1 300
+    output: |
+        Grafo direcionado
+        listaDeAdjacencia[0] -> (0, 100) (1, 300)
+        listaDeAdjacencia[1] -> (1, 200)
+        Grafo nao direcionado
+        listaDeAdjacencia[0] -> (0, 100) (1, 300)
+        listaDeAdjacencia[1] -> (1, 200) (0, 300)

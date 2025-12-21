@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "um exemplo de exemplo de texto\num\nexemplo\ntexto\nde\nfim\n", "output": "1\n2\n1\n2\n"}, {"category": "public", "input": "um exemplo com freq um\num\nexemplo\ncom\nfreq\num\nfim\n", "output": "2\n1\n1\n1\n2\n"}]}

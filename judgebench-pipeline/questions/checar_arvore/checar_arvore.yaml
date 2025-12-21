@@ -1,0 +1,74 @@
+name: checar_arvore
+label: É árvore?
+tags: [grafos, arvores]
+text: |
+
+    # É árvore?
+    
+    Como você deve saber uma árvore é um grafo que contém certas propriedades: não contém ciclos e é conectado (de um nó
+    é possível chegar em todos os outros apenas utilizando arestas).
+    
+    Nesta atividade você deverá implementar um algoritmo que dado um grafo não direcionado e não ponderado
+    imprime True se o grafo é uma árvore e False caso contrário.
+    
+    ## Entrada
+
+    A primeira linha irá conter dois inteiros N e M, respectivamente o número de nós no grafo e o número de arestas.
+    Cada nó é identificado com um valor de 0 a N-1. As próximas M linhas são as arestas, cada linha irá conter 2 inteiros,
+    nós A e B (0 <= A, B <= N-1), identificando que existe uma aresta entre A e B.
+    
+    ## Saída
+
+    Seu programa deve imprimir apenas uma linha contendo True se o grafo é uma árvore e False caso contrário.
+
+    ## Exemplo de execução
+    
+        $ javac Solution.java; java Solution
+        3 2
+        1 2
+        0 2
+        True
+
+    ## Restrições
+
+
+tests:
+-   input: |
+        2 1
+        0 1
+    output: |
+        True
+
+-   input: |
+        2 3
+        0 1
+        0 1
+        0 1
+    output: |
+       False
+
+-   category: public
+    input: |
+        3 2
+        1 2
+        0 2
+    output: |
+        True
+
+-   category: public
+    input: |
+        4 3
+        1 2
+        0 2
+        1 0
+    output: |
+        False
+
+-   input: |
+        4 3
+        2 1
+        0 1
+        0 3
+    output: |
+       True
+

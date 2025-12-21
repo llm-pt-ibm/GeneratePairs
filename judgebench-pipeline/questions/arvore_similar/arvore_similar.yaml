@@ -1,0 +1,134 @@
+name: arvore_similar
+label: Árvores similares
+tags: [arvores, dfs, bfs]
+text: |
+
+    # Árvores similares
+
+    Diz-se que duas árvores são similares quando têm a mesma estrutura de nós, independente
+    de seus valores. 
+    
+    Nesta atividade você deve implementar um algoritmo que construa duas árvores binárias 
+    e as compare, dando como resultado se elas são similares (possuem mesma estrutura
+    de nós).
+
+    ## Entrada
+
+    A primeira linha conterá um inteiro n, 0 < n < 30, indicando o tamanho das duas árvores (quantidade
+    de elementos em cada uma). As n linhas seguintes conterão os elementos da primeira árvore, que devem
+    ser inseridos de acordo com a ordem de entrada. As próximas n linhas contém os elementos
+    da segunda árvore.
+
+    ## Saída
+
+    Seu programa deve imprimir apenas uma linha contendo "Arvores similares." se as árvores possuirem
+    mesma estrutura, caso contrário deve imprimir "Arvores com estruturas diferentes.".
+
+    ## Exemplo de execução
+
+    $ javac Solution.java; java Solution
+    3
+    2
+    1
+    3
+    1
+    2
+    3
+    Arvores com estruturas diferentes.
+
+    $ javac Solution.java; java Solution
+    1
+    4
+    20
+    Arvores similares.
+
+    ## Restrições
+
+tests:
+- category: public
+  input: |
+      3
+      2
+      1
+      3
+      1
+      2
+      3
+  output: |
+      Arvores com estruturas diferentes.
+
+- category: public
+  input: |
+      1
+      3
+      20
+  output: |
+      Arvores similares.
+
+- input: |
+      5
+      1
+      2
+      3
+      4
+      5
+      10
+      11
+      12
+      13
+      14
+      15
+  output: |
+      Arvores similares.
+
+- input: |
+      6
+      10
+      5
+      1
+      30
+      20
+      25
+      15
+      7
+      2
+      20
+      19
+      18
+  output: |
+      Arvores com estruturas diferentes.
+
+- input: |
+      5
+      10
+      5
+      1
+      30
+      20
+      15
+      7
+      2
+      20
+      19
+  output: |
+      Arvores similares.
+
+- input: |
+      7
+      15
+      7
+      2
+      20
+      17
+      19
+      16
+      10
+      5
+      1
+      30
+      20
+      25
+      17
+  output: |
+      Arvores similares.
+      

@@ -1,0 +1,54 @@
+name: elementos_duplicados
+label: Checagem de elementos duplicados
+tags: [algoritmos_elementares, arrays, desafio, entrevista]
+text: |
+    
+    # Verificação de elementos duplicados
+
+    Escreva um programa que recebe uma sequência e verifica se esta possui ou não elementos duplicados. 
+
+    ## Restrições
+
+    Não é permitido a utilização de nenhum método do Collections ou outra estrutura de dados diferente de array.
+
+    ## Entrada
+
+    Seu programa recebe uma sequência qualquer, com os elementos separados por espaço.
+
+    ## Saída
+
+    Seu programa deve imprimir true se a sequência possuir elementos duplicados e false caso contrário.
+
+    ## Exemplos de execução
+
+        javac Solucao.java; java Solucao
+        1 5 6 8 8 4 2 0
+        true
+
+        javac Solucao.java; java Solucao
+        1 6 8 7 9 5
+        false
+
+tests:
+-   category: public
+    input: |
+        1 5 6 8 8 4 2 0
+    output: |
+        true
+-   category: public
+    input: |
+        1 6 8 7 9 5
+    output: |
+        false
+-   input: |
+        8
+    output: |
+        false
+-   input: |
+        1 5 6 8 9 4 5 1
+    output: |
+        true
+-   input: |
+        9 8 5 5 4 6
+    output: |
+        true

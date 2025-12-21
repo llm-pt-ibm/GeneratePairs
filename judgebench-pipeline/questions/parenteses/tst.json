@@ -1,0 +1,1 @@
+{"tests": [{"category": "public", "input": "(())\n", "output": "S\n"}, {"category": "public", "input": "))((\n", "output": "N\n"}]}

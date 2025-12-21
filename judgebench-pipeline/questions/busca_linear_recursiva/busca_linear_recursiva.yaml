@@ -1,0 +1,81 @@
+name: busca_linear_recursiva
+label: Busca Linear Recursiva
+tags: [algoritmos_elementares, arrays, busca, recursividade]
+text: |
+
+    # Busca Linear Recursiva
+
+    Implemente um programa que leia uma sequência de inteiros e um número N e 
+    verifica se N está na sequência lida.
+    Seu programa deve fazer uma busca linear recursiva para resolver o problema.
+
+    ## Entrada
+
+    Seu programa deve ler da entrada duas linhas: a primeira é linha contendo uma sequência de 
+    inteiros separados por espaço, enquanto a segunda é um número N a ser pesquisado na sequência.
+
+    ## Saída
+
+    Seu programa deve imprimir o primeiro índice em que N aparece.
+
+    Caso não encontre N, deve imprimir -1. 
+
+    ## Exemplo de execução
+    
+        $ javac Solution.java; java Solution
+        3 5 8 10 12 18 20
+        99
+        -1
+        $
+
+
+        $ javac Solution.java; java Solution
+        3 5 8 10 12 18
+        3
+        0
+
+
+    ## Restrições
+
+    Você não pode usar coleção ou método algum do Collections framework. 
+    Sua implementação deve ser baseada em arrays.
+    Você **deve usar recursão**.
+    
+tests:
+-   category: public
+    input: |
+        3 5 8 10 12 18 20
+        99
+    output: |
+        -1
+-   input: |
+        3 5 8 10 12 18
+        3
+    output: |
+        0
+    category: public
+-   input: |
+        1 1 1
+        1
+    output: |
+        0
+-   input: |
+        0 1 2 3 4 5 6 7 8 9 10
+        0
+    output: |
+        0
+-   input: |
+        0 1 2 3 4 5 6 7 8 9 10
+        10
+    output: |
+        10
+-   input: |
+        0 1 2 3 4 5 6 7 8 9 10
+        3
+    output: |
+        3
+-   input: |
+        0 1 2 3 4 5 6 7 8 9 10
+        8
+    output: |
+        8

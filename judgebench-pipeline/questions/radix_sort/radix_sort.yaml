@@ -1,0 +1,88 @@
+name: radix_sort
+type: problem
+label: Radix Sort
+tags: [arrays, ordenacao, linear]
+text: |
+    
+    # Radix Sort
+    
+    Escreva um programa que ordene uma sequência de números seguindo
+    a estratégia do Radix Sort. Você deve usar o counting sort
+    como rotina de ordenação dos dígitos.
+   
+    ## Entrada
+
+    Seu programa deve ler duas linhas da entrada padrão. A primeira
+    é uma sequência de inteiros separados por espaço e a 
+    segunda um número inteiro **d** representando a quantidade de dígitos
+    dos elementos lidos. 
+    
+    Importante: Você pode considerar que todos os valores a serem
+    ordenados tem a mesma quantidade **d** de dígitos.
+
+    **Atenção!** Na solução que vimos em sala de aula, o counting sort ordenava
+    valores entre 1 e k. Contudo, note que o radix aplica o counting sort nos seus dígitos.
+    Você não pode assumir que os dígitos estão entre 1 e 9. Você deve assumir
+    que os dígitos estão entre 0 e 9. Sendo assim, vai precisar fazer pequenas
+    modificações no algoritmo do counting sort que vimos.
+
+    ## Saída
+
+    Seu programa deve imprimir os resultados parciais da ordenação. Ou seja, 
+    imprimir o array sempre que a rotina do counting sort em um determinado
+    dígito terminar.
+
+    ## Exemplos
+    
+        javac Solution.java; java Solution
+        8936 1238 5434 7564 3244 4532 7456 4235 9853 2736
+        4
+        [4532, 9853, 5434, 7564, 3244, 4235, 8936, 7456, 2736, 1238]
+        [4532, 5434, 4235, 8936, 2736, 1238, 3244, 9853, 7456, 7564]
+        [4235, 1238, 3244, 5434, 7456, 4532, 7564, 2736, 9853, 8936]
+        [1238, 2736, 3244, 4235, 4532, 5434, 7456, 7564, 8936, 9853]
+
+        
+
+    ## Dica
+
+    Utilize Arrays.toString().
+    
+    ## Restrições
+    
+    Não é permitido usar Arrays.sort ou qualquer método
+    pronto de bibliotecas de ordenação. Caso precise, implemente.
+
+    Seu programa deve apenas manipular o array de inteiros. Não pode usar funções como:
+    
+        - insert
+        - remove
+        - pop
+        - qualquer função de ordenação que não tenha sido feita por você
+
+
+tests:
+-   category: public
+    input: |
+        8936 1238 5434 7564 3244 4532 7456 4235 9853 2736
+        4
+    output: |
+        [4532, 9853, 5434, 7564, 3244, 4235, 8936, 7456, 2736, 1238]
+        [4532, 5434, 4235, 8936, 2736, 1238, 3244, 9853, 7456, 7564]
+        [4235, 1238, 3244, 5434, 7456, 4532, 7564, 2736, 9853, 8936]
+        [1238, 2736, 3244, 4235, 4532, 5434, 7456, 7564, 8936, 9853]
+
+-   input: |
+        327 123
+        3
+    output: |
+        [123, 327]
+        [123, 327]
+        [123, 327]
+-   input: |
+        102 498 423 709 673
+        3
+    output: |
+        [102, 423, 673, 498, 709]
+        [102, 709, 423, 673, 498]
+        [102, 423, 498, 673, 709]
