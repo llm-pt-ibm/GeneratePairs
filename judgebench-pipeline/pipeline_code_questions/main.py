@@ -3,129 +3,128 @@ import logging
 from pathlib import Path
 import json
 
-# Importações dos nossos módulos do pipeline
-from carregador_problema import carregar_problema_do_diretorio
-from gerar_pares import criar_pares_de_codigo
+# Imports from our pipeline modules
+from problem_loader import load_problem_from_directory
+from pair_generator import create_code_pairs
 
-def acrescentar_ao_jsonl(caminho_arquivo: Path, novos_dados: list):
+def append_to_jsonl(file_path: Path, new_data: list):
     """
-    Acrescenta uma lista de dicionários ao final de um arquivo .jsonl.
-    Abre o arquivo no modo 'a' (append) para garantir a persistência.
+    Appends a list of dictionaries to the end of a .jsonl file.
+    Opens the file in 'a' (append) mode to ensure persistence.
     """
-    with open(caminho_arquivo, 'a', encoding='utf-8') as f:
-        for item in novos_dados:
+    with open(file_path, 'a', encoding='utf-8') as f:
+        for item in new_data:
             json_line = json.dumps(item, ensure_ascii=False)
             f.write(json_line + '\n')
 
-def carregar_ids_processados(caminho_arquivo: Path) -> set:
+def load_processed_ids(file_path: Path) -> set:
     """
-    Lê um arquivo .jsonl existente e retorna um conjunto com os IDs dos problemas
-    que já foram processados para evitar trabalho duplicado.
+    Reads an existing .jsonl file and returns a set of problem IDs
+    that have already been processed to avoid duplicate work.
     """
-    ids_processados = set()
-    if not caminho_arquivo.exists():
-        return ids_processados
+    processed_ids = set()
+    if not file_path.exists():
+        return processed_ids
     
-    with open(caminho_arquivo, 'r', encoding='utf-8') as f:
+    with open(file_path, 'r', encoding='utf-8') as f:
         for line in f:
             try:
                 data = json.loads(line)
                 if "problem_id" in data:
-                    ids_processados.add(data["problem_id"])
+                    processed_ids.add(data["problem_id"])
             except json.JSONDecodeError:
-                logging.warning(f"Linha mal formada encontrada e ignorada em {caminho_arquivo}: {line.strip()}")
-    return ids_processados
+                logging.warning(f"Malformed line found and ignored in {file_path}: {line.strip()}")
+    return processed_ids
 
-def processar_diretorio_de_problemas(
-    caminho_dados: Path, 
-    caminho_saida: Path,
-    num_mutantes: int,
-    max_pares: int
+def process_problem_directory(
+    data_path: Path, 
+    output_path: Path,
+    num_mutants: int,
+    max_pairs: int
 ):
     """
-    Processa um diretório contendo pastas de problemas, salvando o progresso
-    incrementalmente e pulando problemas já processados.
+    Processes a directory containing problem folders, saving progress
+    incrementally and skipping already processed problems.
     """
-    logging.info("--- INICIANDO PIPELINE DE GERAÇÃO DE PARES ---")
+    logging.info("--- STARTING PAIR GENERATION PIPELINE ---")
     
-    # Carrega os IDs dos problemas que já estão no arquivo de saída
-    ids_processados = carregar_ids_processados(caminho_saida)
-    if ids_processados:
-        logging.info(f"Encontrados {len(ids_processados)} problemas já processados no arquivo de saída. Eles serão pulados.")
+    # Load IDs of problems that are already in the output file
+    processed_ids = load_processed_ids(output_path)
+    if processed_ids:
+        logging.info(f"Found {len(processed_ids)} problems already processed in the output file. They will be skipped.")
 
-    diretorios_problemas = [d for d in caminho_dados.iterdir() if d.is_dir()]
-    if not diretorios_problemas:
-        logging.warning(f"Nenhum diretório de problema encontrado em '{caminho_dados}'.")
+    problem_directories = [d for d in data_path.iterdir() if d.is_dir()]
+    if not problem_directories:
+        logging.warning(f"No problem directory found in '{data_path}'.")
         return
 
-    total_problemas = len(diretorios_problemas)
-    novos_pares_gerados = 0
+    total_problems = len(problem_directories)
+    new_pairs_generated = 0
     
-    for i, dir_problema in enumerate(diretorios_problemas):
-        id_problema = dir_problema.name
-        logging.info(f"\n--- Verificando Problema {i+1}/{total_problemas}: {id_problema} ---")
+    for i, problem_dir in enumerate(problem_directories):
+        problem_id = problem_dir.name
+        logging.info(f"\n--- Checking Problem {i+1}/{total_problems}: {problem_id} ---")
 
-        if id_problema in ids_processados:
-            logging.info(f"Problema '{id_problema}' já foi processado. Pulando.")
+        if problem_id in processed_ids:
+            logging.info(f"Problem '{problem_id}' has already been processed. Skipping.")
             continue
         
         try:
-            problema = carregar_problema_do_diretorio(dir_problema)
-            pares = criar_pares_de_codigo(problema, num_mutantes, max_pares)
-            if pares:
-                acrescentar_ao_jsonl(caminho_saida, pares)
-                logging.info(f"✅ Sucesso! {len(pares)} pares para '{id_problema}' foram salvos em '{caminho_saida}'.")
-                novos_pares_gerados += len(pares)
+            problem = load_problem_from_directory(problem_dir)
+            pairs = create_code_pairs(problem, num_mutants, max_pairs)
+            if pairs:
+                append_to_jsonl(output_path, pairs)
+                logging.info(f"✅ Success! {len(pairs)} pairs for '{problem_id}' were saved to '{output_path}'.")
+                new_pairs_generated += len(pairs)
         except Exception as e:
-            logging.error(f"Falha ao processar o problema '{id_problema}': {e}", exc_info=True)
+            logging.error(f"Failed to process problem '{problem_id}': {e}", exc_info=True)
 
-    logging.info("\n--- PIPELINE FINALIZADO ---")
-    if novos_pares_gerados > 0:
-        logging.info(f"✅ {novos_pares_gerados} novos pares foram adicionados ao arquivo de saída.")
+    logging.info("\n--- PIPELINE FINISHED ---")
+    if new_pairs_generated > 0:
+        logging.info(f"✅ {new_pairs_generated} new pairs were added to the output file.")
     else:
-        logging.warning("Nenhum novo par foi gerado nesta execução.")
+        logging.warning("No new pairs were generated in this run.")
 
 
 if __name__ == "__main__":
     logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 
     parser = argparse.ArgumentParser(
-        description="Pipeline para gerar pares de preferência para problemas de código com persistência.",
+        description="Pipeline to generate preference pairs for code problems with persistence.",
     )
     
     parser.add_argument(
         "--data_dir",
         type=str,
         default="questions",
-        help="O caminho para o diretório que contém as pastas dos problemas. Padrão: 'questions'"
+        help="Path to the directory containing problem folders. Default: 'questions'"
     )
     parser.add_argument(
         "--output_file",
         type=str,
-        default="saidas/pares.jsonl",
-        help="O caminho para o arquivo de saída .jsonl. Padrão: 'saidas/pares.jsonl'"
+        default="outputs/pairs.jsonl",
+        help="Path to the output .jsonl file. Default: 'outputs/pairs.jsonl'"
     )
     parser.add_argument(
         "--num_mutants",
         type=int,
         default=5,
-        help="Número de mutantes a serem solicitados ao LLM por problema. Padrão: 10"
+        help="Number of mutants to request from the LLM per problem. Default: 5"
     )
     parser.add_argument(
         "--max_pairs",
         type=int,
         default=1,
-        help="Número máximo de pares a serem salvos por problema. Padrão: 5"
+        help="Maximum number of pairs to save per problem. Default: 1"
     )
 
     args = parser.parse_args()
     
     Path(args.output_file).parent.mkdir(parents=True, exist_ok=True)
     
-    processar_diretorio_de_problemas(
-        caminho_dados=Path(args.data_dir),
-        caminho_saida=Path(args.output_file),
-        num_mutantes=args.num_mutants,
-        max_pares=args.max_pairs
+    process_problem_directory(
+        data_path=Path(args.data_dir),
+        output_path=Path(args.output_file),
+        num_mutants=args.num_mutants,
+        max_pairs=args.max_pairs
     )
-

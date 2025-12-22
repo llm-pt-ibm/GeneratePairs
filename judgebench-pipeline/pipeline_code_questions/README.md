@@ -176,10 +176,10 @@ The pipeline consists of several modules:
 ### Core Modules
 
 - **`main.py`**: Entry point and orchestration
-- **`carregador_problema.py`**: Loads problem data from directories
-- **`gerador_mutantes.py`**: Generates mutants using LLM API
-- **`executor_codigo.py`**: Compiles and executes Java code with test cases
-- **`gerar_pares.py`**: Orchestrates pair creation workflow
+- **`problem_loader.py`**: Loads problem data from directories
+- **`mutant_generator.py`**: Generates mutants using LLM API
+- **`code_executor.py`**: Compiles and executes Java code with test cases
+- **`pair_generator.py`**: Orchestrates pair creation workflow
 - **`config.py`**: Configuration settings (API keys, model selection)
 
 ### Workflow
