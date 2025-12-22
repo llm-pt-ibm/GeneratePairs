@@ -1,6 +1,8 @@
 # Code Question Preference Pair Generation Pipeline
 
-A Python pipeline for generating preference pairs from code problems using LLM-generated mutants. This pipeline processes Java coding problems, generates mutated (buggy) versions using an LLM, validates them through test execution, and creates preference pairs for training and evaluation purposes.
+This repository contains pipelines for generating **preference pairs** designed to **evaluate LLM-as-a-Judge systems**.
+
+The core objective is to test whether a Judge Model can distinguish between a **correct reference solution** and a **subtly incorrect mutant/distractor**. This "sutblety" is key: the errors are designed to be non-obvious to verify the judge's reasoning capabilities.
 
 ## Overview
 
