@@ -3,7 +3,7 @@
 - 100 questions ENEM
 
 
-After filtration
+after filtering (taking 30% from each task)
 
 - 30 questions BLUEX
 - 30 questions HEALTHQA

@@ -1,8 +1,9 @@
-329 questões da POSCOMP (pegar 100 questoes de forma aleatoria)
-100 questões BLUEX
-85 questões ENEM
+100 questions POSCOMP
+100 questions BLUEX
+85 questions ENEM
 
--> Ao final, pegar 30% de cada um
-30 -> POSCOMP
-25 -> ENEM
-30 -> BLUEX
+after filtering (taking 30% from each task)
+
+30 questions POSCOMP
+25 questions ENEM
+30 questions BLUEX
