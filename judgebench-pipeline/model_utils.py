@@ -205,7 +205,38 @@ class TogetherAPI(ChatAPI):
         return response.choices[0].message.content
 
 
+class OpenRouterAPI(ChatAPI):
+    """OpenRouter API — suporta qualquer modelo disponível no OpenRouter.
+
+    O nome do modelo deve seguir o formato provider/model-name, ex:
+        openai/gpt-4o
+        anthropic/claude-3-5-sonnet
+        meta-llama/llama-3.1-70b-instruct
+        google/gemini-2.0-flash-001
+
+    Requer a variável de ambiente OPENROUTER_API_KEY.
+    """
+
+    def __init__(self, model: str):
+        self.model = model
+        self.client = openai.AsyncClient(
+            api_key=os.environ.get("OPENROUTER_API_KEY"),
+            base_url="https://openrouter.ai/api/v1",
+        )
+
+    @backoff.on_exception(backoff.fibo, (openai.OpenAIError), max_tries=5, max_value=30)
+    async def chat(self, messages: List[Dict[str, str]], **kwargs) -> str:
+        response = await self.client.chat.completions.create(
+            model=self.model,
+            messages=messages,
+            **kwargs,
+        )
+        return response.choices[0].message.content
+
+
 def get_chat_api_from_model(model: str) -> ChatAPI:
+    if "/" in model:
+        return OpenRouterAPI(model)
     if model.startswith("gpt") or model.startswith("o"):
         return OpenAIAPI(model)
     if model.startswith("claude"):

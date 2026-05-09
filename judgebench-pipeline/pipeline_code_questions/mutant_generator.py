@@ -5,7 +5,7 @@ from typing import List
 import openai
 
 from problem_loader import ProblemData
-from config import OPENAI_API_KEY, MUTATION_MODEL
+from config import OPENAI_API_KEY, OPENROUTER_API_KEY, MUTATION_MODEL
 
 
 def generate_mutants_with_llm(problem: ProblemData, num_mutants: int) -> List[str]:
@@ -28,13 +28,20 @@ def generate_mutants_with_llm(problem: ProblemData, num_mutants: int) -> List[st
         f"Generating {num_mutants} mutants for problem '{problem.problem_id}' using {MUTATION_MODEL}..."
     )
 
-    if not OPENAI_API_KEY or OPENAI_API_KEY == "SUA_CHAVE_API_AQUI":
-        logging.error(
-            "OpenAI API key is not configured in config.py. Mutant generation will be skipped."
+    is_openrouter = "/" in MUTATION_MODEL
+    if is_openrouter:
+        if not OPENROUTER_API_KEY:
+            logging.error("OPENROUTER_API_KEY is not set. Mutant generation will be skipped.")
+            return []
+        client = openai.OpenAI(
+            api_key=OPENROUTER_API_KEY,
+            base_url="https://openrouter.ai/api/v1",
         )
-        return []
-
-    client = openai.OpenAI(api_key=OPENAI_API_KEY)
+    else:
+        if not OPENAI_API_KEY:
+            logging.error("OPENAI_API_KEY is not set. Mutant generation will be skipped.")
+            return []
+        client = openai.OpenAI(api_key=OPENAI_API_KEY)
 
     # Detailed prompt to guide the LLM to create useful mutations.
     prompt = f"""

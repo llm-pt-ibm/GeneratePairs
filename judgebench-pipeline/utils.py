@@ -98,7 +98,7 @@ def load_knowledge(file_path: str) -> List[Dict[str, Any]]:
         gabarito_letra = item.get("label")
         if not all([enunciado, alternativas, gabarito_letra]): continue
 
-        if "subject" in item and "physics" in item["subject"]:
+        if "subject" in item:
             fonte, id_original = f"bluex-knowledge-{item.get('id', 'unknown')}", item.get("id")
         elif "exam" in item:
             fonte, id_original = f"enem-knowledge-{item.get('exam', 'unknown')}-{item.get('id', 'unknown')}", item.get("id")
@@ -181,9 +181,9 @@ def load_examples_from_dataset_name(dataset_name: str) -> Any:
     if dataset_name == "mmlu_pro":
         return load_mmlu_pro()
     elif dataset_name == "knowledge":
-        return load_knowledge("knowledge_data.jsonl")
+        return load_knowledge("/Users/ronalddmatias/GeneratePairs/knowledge/data_knoledge.jsonl")
     elif dataset_name == "math":
-        return load_math("/Users/ronalddmatias/GeneratePairs/mathematics/data.jsonl")
+        return load_math("/Users/ronalddmatias/GeneratePairs/mathematics/data_math.jsonl")
     elif dataset_name == "reasoning":
         return load_reasoning("/Users/ronalddmatias/GeneratePairs/reasoning/reasoning_poscomp.jsonl")
     else:
@@ -210,14 +210,28 @@ class SolutionChecker(ABC):
         raise NotImplementedError
 
 class MultipleChoiceSolutionChecker(SolutionChecker):
+    CHECKER_MODEL = "openai/gpt-4o-mini"
+
     def __init__(self):
-        self.client = openai.AsyncClient(api_key=os.environ.get("OPENAI_API_KEY"))
+        openrouter_key = os.environ.get("OPENROUTER_API_KEY")
+        openai_key = os.environ.get("OPENAI_API_KEY")
+
+        if openrouter_key:
+            self.client = openai.AsyncClient(
+                api_key=openrouter_key,
+                base_url="https://openrouter.ai/api/v1",
+            )
+            self.model = self.CHECKER_MODEL
+        else:
+            self.client = openai.AsyncClient(api_key=openai_key)
+            self.model = "gpt-4o-mini"
+
         self.system_message = "I will provide you with a multiple-choice question, a response from an LLM, and the correct option. Output a valid JSON object containing a single key-value pair, where the key is \"is_correct\" and corresponding value is a boolean indicating whether or not the LLM-generated selects the correct option."
         self.user_message = "<|Question|>\n{0}\n\n<|LLM Response|>\n{1}\n\n<|Correct Answer|>\n{2}"
-    
+
     async def _chat(self, messages: List[Dict[str, str]], **kwargs) -> bool:
         response = await self.client.chat.completions.create(
-            model="gpt-4o-mini",
+            model=self.model,
             messages=messages,
             temperature=0.0,
             response_format={"type": "json_object"},
